@@ -1,178 +1,190 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atención | EQUIPO TRAMA</title>
+    <title>EQUIPO TRAMA | Inicio</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-        --primario: #1B2631; 
-        --acento: #A0522D; 
-        --fondo-claro: #FDFBF7;
-        --negro-trama: #141c20; /* El negro profundo */
-        --texto: #2C3E50; 
-        --serif: 'Lora', serif; 
-        --sans: 'Inter', sans-serif;
-    }
+    <style>
+        :root {
+            --primario: #1B2631; 
+            --acento: #A0522D; 
+            --fondo-claro: #FDFBF7;
+            --negro-trama: #141c20;
+            --texto: #2C3E50; 
+            --serif: 'Lora', serif; 
+            --sans: 'Inter', sans-serif;
+        }
 
-    body { background: var(--fondo-claro); color: var(--texto); font-family: var(--sans); margin: 0; padding: 0; overflow-x: hidden; }
+        body { background: var(--fondo-claro); color: var(--texto); font-family: var(--sans); margin: 0; padding: 0; overflow-x: hidden; }
 
-    /* HEADER: Súper fino y limpio */
-    header {
-        background: white; 
-        padding: 10px 5%; /* Muy poco padding vertical */
-        display: flex;
-        justify-content: flex-end; 
-        align-items: center;
-        position: sticky; 
-        top: 0; 
-        z-index: 1000;
-        height: 50px; /* Altura fija pequeña */
-        box-shadow: 0 1px 5px rgba(0,0,0,0.02);
-    }
+        /* HEADER UNIFICADO */
+        header {
+            background: white; 
+            padding: 0 5%; 
+            display: flex;
+            justify-content: space-between; /* Corregido para que el logo vaya a la izquierda */
+            align-items: center;
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            height: 60px; 
+            box-shadow: 0 1px 5px rgba(0,0,0,0.02);
+        }
 
-    .nav-menu a { 
-        text-decoration: none; 
-        color: var(--primario); 
-        margin-left: 25px; 
-        font-size: 0.7rem; 
-        font-weight: 600; 
-        text-transform: uppercase; 
-        letter-spacing: 1.5px; 
-        transition: 0.3s;
-    }
+        .logo-contenedor {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    .nav-menu a:hover { color: var(--acento); }
+        .logo-header { height: 35px; width: auto; }
 
-/* --- SECCIÓN HERO CORREGIDA PARA ARCHIVOS EN LA MISMA CARPETA --- */
-.hero-minimal {
-    height: 25vh; 
-    /* Probamos sin la extensión por si acaso, aunque lo correcto es con .png */
-    background-image: url('fondo.png'); 
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; 
-    background-color: var(--fondo-claro);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 5;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 82%);
-    margin-bottom: -1px; 
-    padding: 20px 0;
-}
+        .nombre-institucion {
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            color: #999;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-left: 1px solid #eee;
+            padding-left: 12px;
+            line-height: 1;
+            font-weight: 600;
+        }
 
-.logo-hero {
-    /* Asegurate que el logo se llame exactamente trama.png */
-    content: url('trama.png'); 
-    width: 420px;
-    height: auto;
-    max-width: 90%;
-    position: relative;
-    z-index: 10;
-    transform: translateY(-8px); 
-}/* --- FRANJA NEGRA: La Gran Asimetría --- */
-.franja-negra {
-    background-color: var(--negro-trama);
-    color: white;
-    text-align: center;
-    position: relative;
-    z-index: 8;
-    
-    /* Padding generoso para dar aire al texto */
-    padding: 100px 15% 120px; 
-    
-    /* El clip-path opuesto para encastrar (empieza en 18% a la izq) */
-    clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%);
-    
-    /* Ajuste para que "muerda" hacia arriba y se pegue al Hero */
-    margin-top: -35px; 
-}
+        .nav-menu a { 
+            text-decoration: none; 
+            color: var(--primario); 
+            margin-left: 25px; 
+            font-size: 0.7rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            transition: 0.3s;
+        }
 
-.intro-texto p {
-    max-width: 850px; 
-    margin: 30px auto 0;
-    font-family: var(--serif); 
-    font-size: 1.4rem; 
-    line-height: 1.9;
-    font-style: italic;
-    opacity: 0.95;
-}
-    /* SECCIÓN PILARES */
-    .seccion-pilares { 
-        padding: 100px 10%; 
-        text-align: center;
-        position: relative;
-        /* Un pequeño margen negativo para que se encime ligeramente a la franja negra si querés */
-        margin-top: -30px; 
-        z-index: 15;
-    }
-    
-    .seccion-pilares h3 {
-        font-family: var(--serif); color: var(--acento);
-        font-size: 1.6rem; letter-spacing: 5px; text-transform: uppercase;
-        margin-bottom: 50px;
-    }
+        .nav-menu a:hover { color: var(--acento); }
 
-    .grilla-pilares {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-        max-width: 1100px;
-        margin: 0 auto;
-    }
+        /* HERO MINIMAL CORREGIDO */
+        .hero-minimal {
+            height: 30vh; 
+            background-image: linear-gradient(rgba(253, 251, 247, 0.2), rgba(253, 251, 247, 0.2)), url('fondo.png'); 
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 5;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 82%);
+            padding: 40px 0;
+        }
 
-    .caja-pilar {
-        background: white;
-        padding: 40px 30px;
-        border: 1px solid #f2f2f2;
-        transition: all 0.4s ease;
-        text-align: left;
-    }
+        .logo-hero {
+            width: 420px;
+            height: auto;
+            max-width: 85%;
+            position: relative;
+            z-index: 10;
+            /* Eliminado el 'content: url' que causaba el error */
+        }
 
-    .caja-pilar h4 {
-        font-family: var(--sans); font-weight: 700;
-        text-transform: uppercase; letter-spacing: 2px;
-        margin-bottom: 12px; color: var(--primario);
-        font-size: 0.9rem;
-    }
+        /* FRANJA NEGRA */
+        .franja-negra {
+            background-color: var(--negro-trama);
+            color: white;
+            text-align: center;
+            position: relative;
+            z-index: 8;
+            padding: 120px 15% 140px; 
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+            margin-top: -50px; 
+        }
 
-    .caja-pilar p { font-size: 0.85rem; line-height: 1.6; color: #666; }
+        .intro-texto p {
+            max-width: 850px; 
+            margin: 0 auto;
+            font-family: var(--serif); 
+            font-size: 1.4rem; 
+            line-height: 1.9;
+            font-style: italic;
+            opacity: 0.95;
+        }
 
-    .caja-pilar:hover {
-        border-color: var(--acento);
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-    }
+        /* SECCIÓN PILARES */
+        .seccion-pilares { 
+            padding: 100px 10%; 
+            text-align: center;
+            position: relative;
+            z-index: 15;
+        }
+        
+        .seccion-pilares h3 {
+            font-family: var(--serif); 
+            color: var(--acento);
+            font-size: 1.6rem; 
+            letter-spacing: 5px; 
+            text-transform: uppercase;
+            margin-bottom: 60px;
+        }
 
-    /* FOOTER */
-    .footer-trama { padding: 60px 0; text-align: center; background: white; border-top: 1px solid #eee; }
-    .footer-marca { font-family: var(--serif); letter-spacing: 5px; color: var(--primario); margin-bottom: 10px; font-size: 0.9rem;}
-    
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-        .franja-negra { padding: 80px 10% 100px; clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
-        .intro-texto p { font-size: 1.1rem; }
-    }
-</style>
+        .grilla-pilares {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .caja-pilar {
+            background: white;
+            padding: 50px 35px;
+            border: 1px solid #f2f2f2;
+            transition: all 0.4s ease;
+            text-align: left;
+        }
+
+        .caja-pilar h4 {
+            font-family: var(--sans); 
+            font-weight: 700;
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            margin-bottom: 15px; 
+            color: var(--primario);
+            font-size: 0.9rem;
+        }
+
+        .caja-pilar p { font-size: 0.85rem; line-height: 1.7; color: #666; }
+
+        .caja-pilar:hover {
+            border-color: var(--acento);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+        }
+
+        /* FOOTER */
+        .footer-trama { padding: 80px 0; text-align: center; background: white; border-top: 1px solid #eee; }
+        .footer-marca { font-family: var(--serif); letter-spacing: 5px; color: var(--primario); margin-bottom: 15px; font-size: 0.9rem;}
+        .footer-creditos { font-family: var(--sans); font-size: 0.75rem; color: #999; letter-spacing: 1px; text-transform: uppercase; }
+        .footer-creditos a { color: var(--acento); text-decoration: none; font-weight: 600; }
+    </style>
 </head>
 <body>
 
 <header>
-        <div class="logo-contenedor">
-            <img src="logo-trama.png" alt="Logo Trama" class="logo-header">
-            <span class="nombre-institucion">EQUIPO TRAMA</span>
-        </div>
-        <nav class="nav-menu">
-            <a href="index.html">Inicio</a>
-            <a href="atencion.html">Atención</a>
-            <a href="propuestas.html">Propuestas</a>
-            <a href="contacto.html">Contacto</a>
-        </nav>
-    </header>
+    <div class="logo-contenedor">
+        <img src="trama.png" alt="Logo Trama" class="logo-header">
+        <span class="nombre-institucion">EQUIPO TRAMA</span>
+    </div>
+    <nav class="nav-menu">
+        <a href="index.html">Inicio</a>
+        <a href="atencion.html">Atención</a>
+        <a href="propuestas.html">Propuestas</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+</header>
 
 <section class="hero-minimal">
     <img src="trama.png" alt="Logo Equipo Trama" class="logo-hero">
