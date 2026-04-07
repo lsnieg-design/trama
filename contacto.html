@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atención | EQUIPO TRAMA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* VARIABLES DE MARCA */
+        :root {
+            --primario: #1a1a1a;
+            --acento: #A0522D; /* Color óxido */
+            --texto: #333;
+            --crema: #F9F7F2;
+            --serif: 'Lora', serif;
+            --sans: 'Inter', sans-serif;
+        }
+
+        /* ESTILOS BASE */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: var(--sans); 
+            color: var(--texto); 
+            line-height: 1.6; 
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* HEADER: LOGO + NOMBRE */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-contenedor {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-header { height: 38px; width: auto; }
+
+        .nombre-institucion {
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            color: #999;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-left: 1px solid #eee;
+            padding-left: 12px;
+            line-height: 1;
+        }
+
+        .nav-menu a {
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--primario);
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+        .nav-menu a:hover { color: var(--acento); }
+
+        /* HERO DIFUMINADO */
+        .hero-diagonal {
+            height: 48vh;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            background-color: #1a1a1a;
+        }
+
+        .hero-diagonal::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('portada.png') no-repeat center / cover;
+            filter: blur(12px) brightness(0.5);
+            transform: scale(1.1);
+            z-index: 1;
+        }
+
+        .hero-content { position: relative; z-index: 10; text-align: center; }
+        .hero-content h1 {
+            font-family: var(--serif);
+            font-size: 4.5rem;
+            letter-spacing: 20px;
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: 300;
+            text-shadow: 0 0 20px rgba(255,255,255,0.1), 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .hero-content p { letter-spacing: 12px; font-size: 13px; opacity: 0.8; margin-top: 10px; }
+
+        /* SECCIÓN CONTACTO */
+        .contenedor-contacto {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            padding: 80px 15%;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .info-red {
+            padding-right: 40px;
+        }
+
+        .info-red h3 {
+            font-family: var(--sans);
+            letter-spacing: 3px;
+            color: var(--primario);
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .info-red p {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--texto);
+            opacity: 0.9;
+        }
+
+        /* CAJAS DE CONTACTO */
+        .caja-contacto-enlace {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            margin-bottom: 25px;
+        }
+
+        .caja-contacto-cuadrada {
+            background-color: var(--crema);
+            padding: 40px;
+            border: 1px solid #FADCCB;
+            border-radius: 2px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .caja-contacto-cuadrada:hover {
+            background-color: white;
+            border-color: var(--acento);
+            transform: translateX(12px);
+            box-shadow: 0 10px 30px rgba(160, 82, 45, 0.08);
+        }
+
+        .caja-contacto-cuadrada span {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .caja-contacto-cuadrada h4 {
+            font-family: var(--sans);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primario);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .caja-contacto-cuadrada p {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            font-family: var(--sans);
+        }
+
+        /* ANIMACIONES */
+        .revelar {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .revelar.activo { opacity: 1; transform: translateY(0); }
+
+        .fade-in-inicio { animation: fadeInSuave 1.2s ease forwards; }
+        @keyframes fadeInSuave { from { opacity: 0; } to { opacity: 1; } }
+
+        /* FOOTER */
+        .footer-trama { padding: 60px 0 40px; text-align: center; border-top: 1px solid #f0f0f0; }
+        .footer-marca { font-family: var(--serif); letter-spacing: 5px; color: var(--primario); font-size: 1rem; margin-bottom: 15px; }
+        .footer-creditos { font-family: var(--sans); font-size: 0.75rem; color: #999; letter-spacing: 1px; text-transform: uppercase; }
+        .footer-creditos a { color: var(--acento); text-decoration: none; font-weight: 600; }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .contenedor-contacto { grid-template-columns: 1fr; gap: 40px; padding: 60px 10%; }
+            .info-red { padding-right: 0; text-align: center; }
+        }
+    </style>
+</head>
+
+<body class="fade-in-inicio">
+
+   <header>
+        <div class="logo-contenedor">
+            <img src="logo-trama.png" alt="Logo Trama" class="logo-header">
+            <span class="nombre-institucion">EQUIPO TRAMA</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html">Inicio</a>
+            <a href="atencion.html">Atención</a>
+            <a href="propuestas.html">Propuestas</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+
+    <section class="hero-diagonal">
+        <div class="hero-content">
+            <h1>CONTACTO</h1>
+            <p>Estamos cerca</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="revelar" style="text-align: center; padding: 80px 10% 20px;">
+            <h2 style="font-family: var(--serif); color: var(--acento); font-size: 2.2rem; margin-bottom: 15px;">¿Hablamos?</h2>
+            <p style="max-width: 600px; margin: 0 auto; font-family: var(--serif); font-size: 1.2rem; line-height: 1.7; color: var(--primario); font-style: italic; opacity: 0.8;">
+                Estamos acá para escucharte y despejar tus dudas. Elegí el medio que te resulte más cómodo.
+            </p>
+        </section>
+
+        <div class="contenedor-contacto">
+            
+            <div class="info-red revelar">
+                <h3>NUESTRA RED</h3>
+                <p>Si buscás atención psicológica o participar de nuestras propuestas, podés contactarnos directamente a través de nuestros canales digitales.</p>
+                <div style="width: 40px; height: 1px; background-color: var(--acento); margin-top: 30px;"></div>
+            </div>
+
+            <div class="redes-contacto revelar">
+                
+                <a href="https://wa.me/TUNUMERO" class="caja-contacto-enlace" target="_blank">
+                    <div class="caja-contacto-cuadrada">
+                        <span>📱</span>
+                        <h4>WhatsApp</h4>
+                        <p>Escribinos de forma directa</p>
+                    </div>
+                </a>
+
+                <a href="https://www.instagram.com/tu_usuario" class="caja-contacto-enlace" target="_blank">
+                    <div class="caja-contacto-cuadrada">
+                        <span>📸</span>
+                        <h4>Instagram</h4>
+                        <p>Seguí nuestra trama diaria</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-trama">
+        <p class="footer-marca">EQUIPO TRAMA</p>
+        <p class="footer-creditos">
+            Creado por <a href="http://www.somosnomade.com.ar" target="_blank">Nómade</a> - 2026
+        </p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('activo');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.revelar').forEach((el) => observer.observe(el));
+    </script>
+
+</body>
+</html>

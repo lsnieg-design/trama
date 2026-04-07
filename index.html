@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atención | EQUIPO TRAMA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+        --primario: #1B2631; 
+        --acento: #A0522D; 
+        --fondo-claro: #FDFBF7;
+        --negro-trama: #141c20; /* El negro profundo */
+        --texto: #2C3E50; 
+        --serif: 'Lora', serif; 
+        --sans: 'Inter', sans-serif;
+    }
+
+    body { background: var(--fondo-claro); color: var(--texto); font-family: var(--sans); margin: 0; padding: 0; overflow-x: hidden; }
+
+    /* HEADER: Súper fino y limpio */
+    header {
+        background: white; 
+        padding: 10px 5%; /* Muy poco padding vertical */
+        display: flex;
+        justify-content: flex-end; 
+        align-items: center;
+        position: sticky; 
+        top: 0; 
+        z-index: 1000;
+        height: 50px; /* Altura fija pequeña */
+        box-shadow: 0 1px 5px rgba(0,0,0,0.02);
+    }
+
+    .nav-menu a { 
+        text-decoration: none; 
+        color: var(--primario); 
+        margin-left: 25px; 
+        font-size: 0.7rem; 
+        font-weight: 600; 
+        text-transform: uppercase; 
+        letter-spacing: 1.5px; 
+        transition: 0.3s;
+    }
+
+    .nav-menu a:hover { color: var(--acento); }
+
+/* --- SECCIÓN HERO CORREGIDA PARA ARCHIVOS EN LA MISMA CARPETA --- */
+.hero-minimal {
+    height: 25vh; 
+    /* Probamos sin la extensión por si acaso, aunque lo correcto es con .png */
+    background-image: url('fondo.png'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+    background-color: var(--fondo-claro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 82%);
+    margin-bottom: -1px; 
+    padding: 20px 0;
+}
+
+.logo-hero {
+    /* Asegurate que el logo se llame exactamente trama.png */
+    content: url('trama.png'); 
+    width: 420px;
+    height: auto;
+    max-width: 90%;
+    position: relative;
+    z-index: 10;
+    transform: translateY(-8px); 
+}/* --- FRANJA NEGRA: La Gran Asimetría --- */
+.franja-negra {
+    background-color: var(--negro-trama);
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 8;
+    
+    /* Padding generoso para dar aire al texto */
+    padding: 100px 15% 120px; 
+    
+    /* El clip-path opuesto para encastrar (empieza en 18% a la izq) */
+    clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%);
+    
+    /* Ajuste para que "muerda" hacia arriba y se pegue al Hero */
+    margin-top: -35px; 
+}
+
+.intro-texto p {
+    max-width: 850px; 
+    margin: 30px auto 0;
+    font-family: var(--serif); 
+    font-size: 1.4rem; 
+    line-height: 1.9;
+    font-style: italic;
+    opacity: 0.95;
+}
+    /* SECCIÓN PILARES */
+    .seccion-pilares { 
+        padding: 100px 10%; 
+        text-align: center;
+        position: relative;
+        /* Un pequeño margen negativo para que se encime ligeramente a la franja negra si querés */
+        margin-top: -30px; 
+        z-index: 15;
+    }
+    
+    .seccion-pilares h3 {
+        font-family: var(--serif); color: var(--acento);
+        font-size: 1.6rem; letter-spacing: 5px; text-transform: uppercase;
+        margin-bottom: 50px;
+    }
+
+    .grilla-pilares {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .caja-pilar {
+        background: white;
+        padding: 40px 30px;
+        border: 1px solid #f2f2f2;
+        transition: all 0.4s ease;
+        text-align: left;
+    }
+
+    .caja-pilar h4 {
+        font-family: var(--sans); font-weight: 700;
+        text-transform: uppercase; letter-spacing: 2px;
+        margin-bottom: 12px; color: var(--primario);
+        font-size: 0.9rem;
+    }
+
+    .caja-pilar p { font-size: 0.85rem; line-height: 1.6; color: #666; }
+
+    .caja-pilar:hover {
+        border-color: var(--acento);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+
+    /* FOOTER */
+    .footer-trama { padding: 60px 0; text-align: center; background: white; border-top: 1px solid #eee; }
+    .footer-marca { font-family: var(--serif); letter-spacing: 5px; color: var(--primario); margin-bottom: 10px; font-size: 0.9rem;}
+    
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .franja-negra { padding: 80px 10% 100px; clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
+        .intro-texto p { font-size: 1.1rem; }
+    }
+</style>
+</head>
+<body>
+
+<header>
+        <div class="logo-contenedor">
+            <img src="logo-trama.png" alt="Logo Trama" class="logo-header">
+            <span class="nombre-institucion">EQUIPO TRAMA</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html">Inicio</a>
+            <a href="atencion.html">Atención</a>
+            <a href="propuestas.html">Propuestas</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+<section class="hero-minimal">
+    <img src="trama.png" alt="Logo Equipo Trama" class="logo-hero">
+</section>
+
+<main>
+    <section class="franja-negra">
+        <div class="intro-texto">
+            <p>
+                "<strong>Equipo Trama</strong> es una red de profesionales de la salud mental que comparten un marco ético y clínico común, y que se articulan bajo una misma identidad institucional para potenciar la difusión, el trabajo en red y las derivaciones. Nace con una idea simple: trabajar acompañados, sin perder autonomía."
+            </p>
+        </div>
+    </section>
+
+    <section class="seccion-pilares">
+        <h3>Nuestros pilares</h3>
+        <div class="grilla-pilares">
+            <div class="caja-pilar">
+                <h4>Lo individual</h4>
+                <p>Un hilo que porta su propia historia, singular y única.</p>
+            </div>
+            <div class="caja-pilar">
+                <h4>Lo grupal</h4>
+                <p>El entrecruce que nos sostiene con otros, donde la palabra circula.</p>
+            </div>
+            <div class="caja-pilar">
+                <h4>Lo social</h4>
+                <p>La red social y comunitaria que nos contiene y da pertenencia.</p>
+            </div>
+            <div class="caja-pilar">
+                <h4>El tiempo</h4>
+                <p>Lo que se teje, se desteje y se vuelve a armar en cada proceso.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer-trama">
+    <p class="footer-marca">EQUIPO TRAMA</p>
+    <p class="footer-creditos">
+        Creado por <a href="http://www.somosnomade.com.ar" target="_blank">Nómade</a> - 2026
+    </p>
+</footer>
+
+</body>
+</html>

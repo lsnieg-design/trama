@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atención | EQUIPO TRAMA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    
+    <style>
+        /* VARIABLES DE MARCA */
+        :root {
+            --primario: #1a1a1a;
+            --acento: #A0522D; /* Color óxido */
+            --texto: #333;
+            --crema: #F9F7F2;
+            --serif: 'Lora', serif;
+            --sans: 'Inter', sans-serif;
+        }
+
+        /* ESTILOS BASE */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: var(--sans); 
+            color: var(--texto); 
+            line-height: 1.6; 
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* HEADER: LOGO + TEXTO PEGADO */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-contenedor {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-header { height: 38px; width: auto; }
+
+        .nombre-institucion {
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            color: #999;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-left: 1px solid #eee;
+            padding-left: 12px;
+            line-height: 1;
+        }
+
+        .nav-menu a {
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--primario);
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+        .nav-menu a:hover { color: var(--acento); }
+
+        /* HERO DIFUMINADO */
+        .hero-diagonal {
+            height: 48vh;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            background-color: #1a1a1a;
+        }
+
+        .hero-diagonal::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('portada.png') no-repeat center / cover;
+            filter: blur(12px) brightness(0.5);
+            transform: scale(1.1);
+            z-index: 1;
+        }
+
+        .hero-content { position: relative; z-index: 10; text-align: center; }
+        .hero-content h1 {
+            font-family: var(--serif);
+            font-size: 4.5rem;
+            letter-spacing: 20px;
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: 300;
+            text-shadow: 0 0 20px rgba(255,255,255,0.1), 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .hero-content p { letter-spacing: 12px; font-size: 13px; opacity: 0.8; margin-top: 10px; }
+
+        /* GRILLA DE PROPUESTAS */
+        .seccion-propuestas-fondo {
+            background-color: #FFFFFF;
+            padding: 40px 0 80px;
+        }
+
+        .propuestas-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding: 0 10%;
+        }
+
+        .propuesta-card-cuadrada {
+            background-color: var(--crema);
+            width: 290px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid #FADCCB;
+            border-radius: 2px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.4s ease;
+        }
+
+        .propuesta-card-cuadrada:hover {
+            transform: translateY(-8px);
+            background-color: #FFFFFF;
+            border-color: var(--acento);
+            box-shadow: 0 15px 30px rgba(160, 82, 45, 0.1);
+        }
+
+        .propuesta-card-cuadrada h3 {
+            font-family: var(--sans);
+            color: var(--primario);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .propuesta-card-cuadrada p {
+            font-family: var(--serif);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--texto);
+            margin-bottom: 30px;
+        }
+
+        .btn-propuesta {
+            display: inline-block;
+            padding: 14px 24px;
+            background-color: var(--primario);
+            color: white;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .btn-propuesta:hover { background-color: var(--acento); }
+
+        /* ANIMACIONES */
+        .revelar {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .revelar.activo { opacity: 1; transform: translateY(0); }
+
+        .fade-in-inicio { animation: fadeInSuave 1.2s ease forwards; }
+        @keyframes fadeInSuave { from { opacity: 0; } to { opacity: 1; } }
+
+        /* FOOTER */
+        .footer-trama { padding: 60px 0 40px; text-align: center; border-top: 1px solid #f0f0f0; }
+        .footer-marca { font-family: var(--serif); letter-spacing: 5px; color: var(--primario); font-size: 1rem; margin-bottom: 15px; }
+        .footer-creditos { font-family: var(--sans); font-size: 0.75rem; color: #999; letter-spacing: 1px; text-transform: uppercase; }
+        .footer-creditos a { color: var(--acento); text-decoration: none; font-weight: 600; }
+    </style>
+</head>
+
+<body class="fade-in-inicio">
+
+   <header>
+        <div class="logo-contenedor">
+            <img src="logo-trama.png" alt="Logo Trama" class="logo-header">
+            <span class="nombre-institucion">EQUIPO TRAMA</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html">Inicio</a>
+            <a href="atencion.html">Atención</a>
+            <a href="propuestas.html">Propuestas</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+
+    <section class="hero-diagonal">
+        <div class="hero-content">
+            <h1>PROPUESTAS</h1>
+            <p>Formación y Red</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="revelar" style="text-align: center; padding: 80px 10% 40px;">
+            <h3 style="font-family: var(--serif); color: var(--acento); font-size: 1.8rem; margin-bottom: 15px;">
+                Más allá del consultorio
+            </h3>
+            <p style="max-width: 800px; margin: 0 auto; font-family: var(--serif); font-size: 1.15rem; line-height: 1.7; color: var(--primario); font-style: italic; opacity: 0.9;">
+                "Entendemos la práctica profesional como una trama en constante movimiento. Por eso, abrimos espacios de formación, supervisión y acompañamiento técnico para profesionales y familias, buscando construir saberes compartidos que fortalezcan nuestra red comunitaria."
+            </p>
+        </section>
+
+        <section class="seccion-propuestas-fondo revelar">
+            <div class="propuestas-grid">
+                
+                <div class="propuesta-card-cuadrada">
+                    <div>
+                        <h3>Grupo de Estudios</h3>
+                        <p>Espacio de formación y reflexión teórica para profesionales de la salud mental.</p>
+                    </div>
+                    <a href="https://wa.me/TUNUMERO" class="btn-propuesta" target="_blank">Quiero participar</a>
+                </div>
+
+                <div class="propuesta-card-cuadrada">
+                    <div>
+                        <h3>Taller de Casos</h3>
+                        <p>Supervisión grupal y análisis de la práctica clínica interdisciplinaria.</p>
+                    </div>
+                    <a href="https://wa.me/TUNUMERO" class="btn-propuesta" target="_blank">Quiero participar</a>
+                </div>
+
+                <div class="propuesta-card-cuadrada">
+                    <div>
+                        <h3>Orientación Familiar</h3>
+                        <p>Acompañamiento especializado para familias de personas con discapacidad.</p>
+                    </div>
+                    <a href="https://wa.me/TUNUMERO" class="btn-propuesta">Más información</a>
+                </div>
+
+                <div class="propuesta-card-cuadrada">
+                    <div>
+                        <h3>Trámite CUD</h3>
+                        <p>Asesoramiento técnico para la gestión del Certificado Único de Discapacidad.</p>
+                    </div>
+                    <a href="https://wa.me/TUNUMERO" class="btn-propuesta">Consultar</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-trama">
+        <p class="footer-marca">EQUIPO TRAMA</p>
+        <p class="footer-creditos">
+            Creado por <a href="http://www.somosnomade.com.ar" target="_blank">Nómade</a> - 2026
+        </p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('activo');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.revelar').forEach((el) => observer.observe(el));
+    </script>
+
+</body>
+</html>

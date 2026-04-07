@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atención | EQUIPO TRAMA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* VARIABLES DE MARCA */
+        :root {
+            --primario: #1a1a1a;
+            --acento: #A0522D; /* Color óxido */
+            --texto: #333;
+            --crema: #F9F7F2;
+            --serif: 'Lora', serif;
+            --sans: 'Inter', sans-serif;
+        }
+
+        /* ESTILOS BASE */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: var(--sans); 
+            color: var(--texto); 
+            line-height: 1.6; 
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* HEADER: LOGO + TEXTO PEGADO */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .logo-contenedor {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-header { height: 38px; width: auto; }
+
+        .nombre-institucion {
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            color: #999;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-left: 1px solid #eee;
+            padding-left: 12px;
+            line-height: 1;
+        }
+
+        .nav-menu a {
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--primario);
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+        .nav-menu a:hover { color: var(--acento); }
+
+        /* HERO DIFUMINADO */
+        .hero-diagonal {
+            height: 48vh;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            background-color: #1a1a1a;
+        }
+
+        .hero-diagonal::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('portada.png') no-repeat center / cover;
+            filter: blur(12px) brightness(0.5);
+            transform: scale(1.1);
+            z-index: 1;
+        }
+
+        .hero-content { position: relative; z-index: 10; text-align: center; }
+        .hero-content h1 {
+            font-family: var(--serif);
+            font-size: 4.5rem;
+            letter-spacing: 20px;
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: 300;
+            text-shadow: 0 0 20px rgba(255,255,255,0.1), 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .hero-content p { letter-spacing: 12px; font-size: 13px; opacity: 0.8; margin-top: 10px; }
+
+        /* SECCIÓN ATENCIÓN Y TARJETAS */
+        .seccion-atencion {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 60px 10%;
+            flex-wrap: wrap;
+        }
+
+        .caja-cuadrada-flip {
+            width: 320px;
+            height: 320px;
+            perspective: 1500px;
+        }
+
+        .flip-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .caja-cuadrada-flip:hover .flip-inner { transform: rotateY(180deg); }
+
+        .cara {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            border: 1px solid #eee;
+        }
+
+        .frente { background-color: white; color: var(--primario); z-index: 2; }
+        .frente h4 { font-family: var(--serif); font-size: 1.5rem; letter-spacing: 3px; text-align: center; }
+
+        .dorso { color: white; transform: rotateY(180deg); text-align: center; }
+        .dorso h5 { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 10px; width: 100%; opacity: 0.8; }
+        .dorso p { font-size: 1.1rem; margin-bottom: 8px; font-family: var(--serif); }
+        
+        .color-acento { background-color: var(--acento); }
+        .color-primario { background-color: #1a1a1a; }
+
+        /* ANIMACIONES DE PÁGINA */
+        .revelar {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .revelar.activo { opacity: 1; transform: translateY(0); }
+
+        .fade-in-inicio { animation: fadeInSuave 1.2s ease forwards; }
+        @keyframes fadeInSuave { from { opacity: 0; } to { opacity: 1; } }
+
+        /* FOOTER */
+        .footer-trama { padding: 60px 0 40px; text-align: center; border-top: 1px solid #f0f0f0; margin-top: 40px;}
+        .footer-marca { font-family: var(--serif); letter-spacing: 5px; color: var(--primario); font-size: 1rem; margin-bottom: 15px; }
+        .footer-creditos { font-family: var(--sans); font-size: 0.75rem; color: #999; letter-spacing: 1px; text-transform: uppercase; }
+        .footer-creditos a { color: var(--acento); text-decoration: none; font-weight: 600; }
+    </style>
+</head>
+
+<body class="fade-in-inicio">
+
+    <header>
+        <div class="logo-contenedor">
+            <img src="logo-trama.png" alt="Logo Trama" class="logo-header">
+            <span class="nombre-institucion">EQUIPO TRAMA</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html">Inicio</a>
+            <a href="atencion.html">Atención</a>
+           <a href="propuestas.html">Propuestas</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="hero-diagonal">
+        <div class="hero-content">
+            <h1>ATENCIÓN</h1>
+            <p>Espacios de encuentro</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="revelar" style="text-align: center; padding: 60px 10% 20px;">
+            <h2 style="font-family: var(--serif); color: var(--acento); font-size: 2rem; margin-bottom: 15px;">Modalidades de acompañamiento</h2>
+            <p style="font-family: var(--serif); font-style: italic; opacity: 0.8; max-width: 700px; margin: 0 auto; line-height: 1.8; font-size: 1.1rem;">
+                Entendemos que cada proceso es singular. Por ello, disponemos de espacios presenciales y virtuales que permiten sostener la continuidad de los tratamientos con compromiso y ética profesional.
+            </p>
+        </section>
+
+        <div class="seccion-atencion revelar">
+            <div class="caja-cuadrada-flip">
+                <div class="flip-inner">
+                    <div class="cara frente">
+                        <h4>ATENCIÓN <br> PRESENCIAL</h4>
+                    </div>
+                    <div class="cara dorso color-acento">
+                        <h5>SEDES</h5>
+                        <p>RAMOS MEJÍA</p>
+                        <p>CABA</p>
+                        <p>MORÓN</p>
+                        <span style="font-size: 0.7rem; margin-top: 20px; opacity: 0.7; letter-spacing: 1px;">CONSULTORIOS HABILITADOS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="caja-cuadrada-flip">
+                <div class="flip-inner">
+                    <div class="cara frente">
+                        <h4>ATENCIÓN <br> VIRTUAL</h4>
+                    </div>
+                    <div class="cara dorso color-primario">
+                        <h5>ONLINE</h5>
+                        <p>NACIONAL</p>
+                        <p>INTERNACIONAL</p>
+                        <span style="font-size: 0.7rem; margin-top: 20px; opacity: 0.7; letter-spacing: 1px;">MODALIDAD VIDEOLLAMADA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-trama">
+        <p class="footer-marca">EQUIPO TRAMA</p>
+        <p class="footer-creditos">
+            Creado por <a href="http://www.somosnomade.com.ar" target="_blank">Nómade</a> - 2026
+        </p>
+    </footer>
+
+    <script>
+        // Observador para animaciones al bajar el scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('activo');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.revelar').forEach((el) => observer.observe(el));
+    </script>
+
+</body>
+</html>
