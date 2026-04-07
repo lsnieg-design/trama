@@ -215,63 +215,70 @@
         padding: 30px;
     }
 }
-     /* --- ESTILOS MENÚ HAMBURGUESA --- */
+   /* --- ESTILOS DEL BOTÓN Y MENÚ --- */
 .menu-toggle {
-    display: none; /* Oculto en PC */
+    display: none;
     flex-direction: column;
     cursor: pointer;
     gap: 5px;
+    z-index: 1100;
 }
 
 .menu-toggle span {
     width: 25px;
     height: 3px;
     background-color: var(--primario);
-    transition: 0.3s;
+    transition: 0.4s;
 }
 
 @media (max-width: 768px) {
+    header {
+        justify-content: space-between; /* Logo a un lado, botón al otro */
+    }
+
     .menu-toggle {
-        display: flex; /* Aparece en Celular */
-        z-index: 1001;
+        display: flex;
+        margin-left: auto; /* Empuja el botón al margen derecho */
     }
 
     .nav-menu {
         position: fixed;
-        right: -100%; /* Empieza afuera de la pantalla */
-        top: 60px;
-        flex-direction: column;
+        right: -100%; /* Escondido a la derecha */
+        top: 0;
         background: white;
-        width: 70%;
+        width: 80%;
         height: 100vh;
-        text-align: center;
-        transition: 0.5s;
-        box-shadow: -10px 0 20px rgba(0,0,0,0.05);
-        padding-top: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
         z-index: 1000;
     }
 
+    /* Clase que activa el JavaScript */
     .nav-menu.active {
-        right: 0; /* Entra cuando se activa */
+        right: 0;
     }
 
     .nav-menu a {
-        margin: 20px 0;
-        display: block;
-        font-size: 0.9rem;
+        margin: 15px 0;
+        font-size: 1rem;
+        letter-spacing: 2px;
     }
 
     /* Animación de las rayitas a 'X' */
-    .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
     .menu-toggle.open span:nth-child(2) { opacity: 0; }
-    .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(6px, -7px); }
+    .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
 }
     </style>
 </head>
 
 <body class="fade-in-inicio">
 
-   <header>
+  <header>
     <div class="logo-contenedor">
         <img src="trama.png" alt="Logo Trama" class="logo-header">
         <span class="nombre-institucion">EQUIPO TRAMA</span>
@@ -354,6 +361,22 @@
 
         document.querySelectorAll('.revelar').forEach((el) => observer.observe(el));
     </script>
+<script>
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
 
+    // Al hacer clic en las rayitas
+    mobileMenu.addEventListener('click', () => {
+        // Toggle (quitar o poner) las clases que definimos en el CSS
+        navMenu.classList.toggle('active');
+        mobileMenu.classList.toggle('open');
+    });
+
+    // Para que se cierre solo al tocar un enlace
+    document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        mobileMenu.classList.remove('open');
+    }));
+</script>
 </body>
 </html>
