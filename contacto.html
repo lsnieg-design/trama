@@ -215,24 +215,81 @@
         padding: 30px;
     }
 }
+     /* --- ESTILOS MENÚ HAMBURGUESA --- */
+.menu-toggle {
+    display: none; /* Oculto en PC */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primario);
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Aparece en Celular */
+        z-index: 1001;
+    }
+
+    .nav-menu {
+        position: fixed;
+        right: -100%; /* Empieza afuera de la pantalla */
+        top: 60px;
+        flex-direction: column;
+        background: white;
+        width: 70%;
+        height: 100vh;
+        text-align: center;
+        transition: 0.5s;
+        box-shadow: -10px 0 20px rgba(0,0,0,0.05);
+        padding-top: 50px;
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        right: 0; /* Entra cuando se activa */
+    }
+
+    .nav-menu a {
+        margin: 20px 0;
+        display: block;
+        font-size: 0.9rem;
+    }
+
+    /* Animación de las rayitas a 'X' */
+    .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(6px, -7px); }
+}
     </style>
 </head>
 
 <body class="fade-in-inicio">
 
    <header>
-        <div class="logo-contenedor">
-            <img src="logo-trama.png" alt="Logo Trama" class="logo-header">
-            <span class="nombre-institucion">EQUIPO TRAMA</span>
-        </div>
-        <nav class="nav-menu">
-            <a href="index.html">Inicio</a>
-            <a href="atencion.html">Atención</a>
-            <a href="propuestas.html">Propuestas</a>
-            <a href="contacto.html">Contacto</a>
-        </nav>
-    </header>
+    <div class="logo-contenedor">
+        <img src="trama.png" alt="Logo Trama" class="logo-header">
+        <span class="nombre-institucion">EQUIPO TRAMA</span>
+    </div>
+    
+    <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
+    <nav class="nav-menu">
+        <a href="index.html">Inicio</a>
+        <a href="atencion.html">Atención</a>
+        <a href="propuestas.html">Propuestas</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+</header>
 
     <section class="hero-diagonal">
         <div class="hero-content">
