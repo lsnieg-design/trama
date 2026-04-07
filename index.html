@@ -169,6 +169,47 @@
         .footer-marca { font-family: var(--serif); letter-spacing: 5px; color: var(--primario); margin-bottom: 15px; font-size: 0.9rem;}
         .footer-creditos { font-family: var(--sans); font-size: 0.75rem; color: #999; letter-spacing: 1px; text-transform: uppercase; }
         .footer-creditos a { color: var(--acento); text-decoration: none; font-weight: 600; }
+        /* --- RESPONSIVE INDEX --- */
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 10px 5%;
+        flex-direction: column; /* Apila logo y menú en pantallas muy chicas */
+        gap: 10px;
+    }
+
+    .logo-hero {
+        width: 80%; /* Achica el logo central en móviles */
+    }
+
+    .hero-minimal {
+        height: 20vh;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+    }
+
+    .franja-negra {
+        padding: 60px 8% 80px;
+        clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+        margin-top: -20px;
+    }
+
+    .intro-texto p {
+        font-size: 1.1rem; /* Texto más legible en mano */
+        line-height: 1.6;
+    }
+
+    .seccion-pilares {
+        padding: 60px 5%;
+    }
+
+    .grilla-pilares {
+        grid-template-columns: 1fr; /* Una sola columna en celular */
+    }
+
+    .caja-pilar {
+        padding: 30px 20px;
+    }
+}
     </style>
 </head>
 <body>
