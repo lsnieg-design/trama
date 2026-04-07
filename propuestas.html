@@ -189,6 +189,31 @@
         .footer-marca { font-family: var(--serif); letter-spacing: 5px; color: var(--primario); font-size: 1rem; margin-bottom: 15px; }
         .footer-creditos { font-family: var(--sans); font-size: 0.75rem; color: #999; letter-spacing: 1px; text-transform: uppercase; }
         .footer-creditos a { color: var(--acento); text-decoration: none; font-weight: 600; }
+        /* --- RESPONSIVE ATENCIÓN / PROPUESTAS --- */
+@media (max-width: 768px) {
+    .hero-diagonal h1 {
+        font-size: 2.5rem; /* Título más chico */
+        letter-spacing: 8px;
+    }
+
+    .seccion-atencion, .propuestas-grid {
+        gap: 20px;
+        padding: 40px 5%;
+    }
+
+    .caja-cuadrada-flip, .propuesta-card-cuadrada {
+        width: 100%; /* Las tarjetas ocupan todo el ancho disponible */
+        max-width: 320px;
+        height: auto;
+        min-height: 300px;
+    }
+
+    /* En celulares, a veces el hover es molesto, 
+       puedes hacer que el dorso se vea al tocar una vez */
+    .flip-inner {
+        transition: transform 0.6s;
+    }
+}
     </style>
 </head>
 
