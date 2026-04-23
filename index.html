@@ -24,7 +24,7 @@
             background: white; 
             padding: 0 5%; 
             display: flex;
-            justify-content: space-between; /* Corregido para que el logo vaya a la izquierda */
+            justify-content: space-between;
             align-items: center;
             position: sticky; 
             top: 0; 
@@ -33,241 +33,115 @@
             box-shadow: 0 1px 5px rgba(0,0,0,0.02);
         }
 
-        .logo-contenedor {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
+        .logo-contenedor { display: flex; align-items: center; gap: 12px; }
         .logo-header { height: 35px; width: auto; }
-
         .nombre-institucion {
-            font-family: var(--sans);
-            font-size: 0.75rem;
-            color: #999;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-left: 1px solid #eee;
-            padding-left: 12px;
-            line-height: 1;
-            font-weight: 600;
+            font-family: var(--sans); font-size: 0.75rem; color: #999;
+            letter-spacing: 1px; text-transform: uppercase; border-left: 1px solid #eee;
+            padding-left: 12px; line-height: 1; font-weight: 600;
         }
 
         .nav-menu a { 
-            text-decoration: none; 
-            color: var(--primario); 
-            margin-left: 25px; 
-            font-size: 0.7rem; 
-            font-weight: 600; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-            transition: 0.3s;
+            text-decoration: none; color: var(--primario); margin-left: 25px; 
+            font-size: 0.7rem; font-weight: 600; text-transform: uppercase; 
+            letter-spacing: 1.5px; transition: 0.3s;
         }
-
         .nav-menu a:hover { color: var(--acento); }
 
-        /* HERO MINIMAL CORREGIDO */
+        /* HERO MINIMAL */
         .hero-minimal {
             height: 30vh; 
             background-image: linear-gradient(rgba(253, 251, 247, 0.2), rgba(253, 251, 247, 0.2)), url('fondo.png'); 
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            z-index: 5;
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 82%);
+            background-repeat: no-repeat; background-position: center; background-size: cover; 
+            display: flex; justify-content: center; align-items: center;
+            position: relative; z-index: 5; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 82%);
             padding: 40px 0;
         }
+        .logo-hero { width: 420px; height: auto; max-width: 85%; position: relative; z-index: 10; }
 
-        .logo-hero {
-            width: 420px;
-            height: auto;
-            max-width: 85%;
-            position: relative;
-            z-index: 10;
-            /* Eliminado el 'content: url' que causaba el error */
-        }
-
-        /* FRANJA NEGRA */
+        /* FRANJA NEGRA (NUEVA ESTRUCTURA DE TEXTO) */
         .franja-negra {
             background-color: var(--negro-trama);
-            color: white;
-            text-align: center;
-            position: relative;
-            z-index: 8;
-            padding: 120px 15% 140px; 
+            color: white; text-align: center; position: relative; z-index: 8;
+            padding: 140px 15% 160px; 
             clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
             margin-top: -50px; 
         }
 
+        .frase-nucleo {
+            font-family: var(--serif);
+            font-size: 2.2rem;
+            color: var(--acento);
+            margin-bottom: 25px;
+            font-style: italic;
+            display: block;
+        }
+
         .intro-texto p {
-            max-width: 850px; 
+            max-width: 750px; 
             margin: 0 auto;
             font-family: var(--serif); 
-            font-size: 1.4rem; 
-            line-height: 1.9;
-            font-style: italic;
-            opacity: 0.95;
+            font-size: 1.25rem; 
+            line-height: 1.8;
+            opacity: 0.9;
         }
 
         /* SECCIÓN PILARES */
-        .seccion-pilares { 
-            padding: 100px 10%; 
-            text-align: center;
-            position: relative;
-            z-index: 15;
-        }
-        
+        .seccion-pilares { padding: 100px 10%; text-align: center; position: relative; z-index: 15; }
         .seccion-pilares h3 {
-            font-family: var(--serif); 
-            color: var(--acento);
-            font-size: 1.6rem; 
-            letter-spacing: 5px; 
-            text-transform: uppercase;
+            font-family: var(--serif); color: var(--acento);
+            font-size: 1.6rem; letter-spacing: 5px; text-transform: uppercase;
             margin-bottom: 60px;
         }
 
         .grilla-pilares {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            max-width: 1100px;
-            margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px; max-width: 1100px; margin: 0 auto;
         }
 
         .caja-pilar {
-            background: white;
-            padding: 50px 35px;
-            border: 1px solid #f2f2f2;
-            transition: all 0.4s ease;
-            text-align: left;
+            background: white; padding: 50px 35px; border: 1px solid #f2f2f2;
+            transition: all 0.4s ease; text-align: left;
         }
 
         .caja-pilar h4 {
-            font-family: var(--sans); 
-            font-weight: 700;
-            text-transform: uppercase; 
-            letter-spacing: 2px;
-            margin-bottom: 15px; 
-            color: var(--primario);
-            font-size: 0.9rem;
+            font-family: var(--sans); font-weight: 700; text-transform: uppercase; 
+            letter-spacing: 2px; margin-bottom: 15px; color: var(--primario); font-size: 0.9rem;
         }
 
         .caja-pilar p { font-size: 0.85rem; line-height: 1.7; color: #666; }
-
-        .caja-pilar:hover {
-            border-color: var(--acento);
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.04);
-        }
+        .caja-pilar:hover { border-color: var(--acento); transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.04); }
 
         /* FOOTER */
         .footer-trama { padding: 80px 0; text-align: center; background: white; border-top: 1px solid #eee; }
         .footer-marca { font-family: var(--serif); letter-spacing: 5px; color: var(--primario); margin-bottom: 15px; font-size: 0.9rem;}
         .footer-creditos { font-family: var(--sans); font-size: 0.75rem; color: #999; letter-spacing: 1px; text-transform: uppercase; }
         .footer-creditos a { color: var(--acento); text-decoration: none; font-weight: 600; }
-        /* --- RESPONSIVE INDEX --- */
-@media (max-width: 768px) {
-    header {
-        height: auto;
-        padding: 10px 5%;
-        flex-direction: column; /* Apila logo y menú en pantallas muy chicas */
-        gap: 10px;
-    }
 
-    .logo-hero {
-        width: 80%; /* Achica el logo central en móviles */
-    }
+        /* RESPONSIVE */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; z-index: 1100; }
+        .menu-toggle span { width: 25px; height: 3px; background-color: var(--primario); transition: 0.4s; }
 
-    .hero-minimal {
-        height: 20vh;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
-    }
+        @media (max-width: 768px) {
+            header { justify-content: space-between; }
+            .menu-toggle { display: flex; margin-left: auto; }
+            .nav-menu {
+                position: fixed; right: -100%; top: 0; background: white;
+                width: 80%; height: 100vh; display: flex; flex-direction: column;
+                justify-content: center; align-items: center; transition: 0.5s;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1); z-index: 1000;
+            }
+            .nav-menu.active { right: 0; }
+            .nav-menu a { margin: 15px 0; font-size: 1rem; }
+            .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+            .menu-toggle.open span:nth-child(2) { opacity: 0; }
+            .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
 
-    .franja-negra {
-        padding: 60px 8% 80px;
-        clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
-        margin-top: -20px;
-    }
-
-    .intro-texto p {
-        font-size: 1.1rem; /* Texto más legible en mano */
-        line-height: 1.6;
-    }
-
-    .seccion-pilares {
-        padding: 60px 5%;
-    }
-
-    .grilla-pilares {
-        grid-template-columns: 1fr; /* Una sola columna en celular */
-    }
-
-    .caja-pilar {
-        padding: 30px 20px;
-    }
-}
-     /* --- ESTILOS DEL BOTÓN Y MENÚ --- */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-    z-index: 1100;
-}
-
-.menu-toggle span {
-    width: 25px;
-    height: 3px;
-    background-color: var(--primario);
-    transition: 0.4s;
-}
-
-@media (max-width: 768px) {
-    header {
-        justify-content: space-between; /* Logo a un lado, botón al otro */
-    }
-
-    .menu-toggle {
-        display: flex;
-        margin-left: auto; /* Empuja el botón al margen derecho */
-    }
-
-    .nav-menu {
-        position: fixed;
-        right: -100%; /* Escondido a la derecha */
-        top: 0;
-        background: white;
-        width: 80%;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-        z-index: 1000;
-    }
-
-    /* Clase que activa el JavaScript */
-    .nav-menu.active {
-        right: 0;
-    }
-
-    .nav-menu a {
-        margin: 15px 0;
-        font-size: 1rem;
-        letter-spacing: 2px;
-    }
-
-    /* Animación de las rayitas a 'X' */
-    .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
-    .menu-toggle.open span:nth-child(2) { opacity: 0; }
-    .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
-}
+            .frase-nucleo { font-size: 1.6rem; }
+            .franja-negra { padding: 80px 8% 100px; }
+            .intro-texto p { font-size: 1.1rem; }
+            .logo-hero { width: 80%; }
+        }
     </style>
 </head>
 <body>
@@ -277,13 +151,7 @@
         <img src="trama.png" alt="Logo Trama" class="logo-header">
         <span class="nombre-institucion">EQUIPO TRAMA</span>
     </div>
-    
-    <div class="menu-toggle" id="mobile-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
+    <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
     <nav class="nav-menu">
         <a href="index.html">Inicio</a>
         <a href="atencion.html">Atención</a>
@@ -299,8 +167,10 @@
 <main>
     <section class="franja-negra">
         <div class="intro-texto">
+            <span class="frase-nucleo">“Trabajar acompañados, sin perder autonomía.”</span>
             <p>
-                "<strong>Equipo Trama</strong> es una red de profesionales de la salud mental que comparten un marco ético y clínico común, y que se articulan bajo una misma identidad institucional para potenciar la difusión, el trabajo en red y las derivaciones. Nace con una idea simple: trabajar acompañados, sin perder autonomía."
+                Red de profesionales de la salud mental con un marco ético y clínico común, 
+                articulados bajo una misma identidad para potenciar el trabajo en red y la formación continua.
             </p>
         </div>
     </section>
@@ -334,18 +204,14 @@
         Creado por <a href="http://www.somosnomade.com.ar" target="_blank">Nómade</a> - 2026
     </p>
 </footer>
+
 <script>
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
-
-    // Al hacer clic en las rayitas
     mobileMenu.addEventListener('click', () => {
-        // Toggle (quitar o poner) las clases que definimos en el CSS
         navMenu.classList.toggle('active');
         mobileMenu.classList.toggle('open');
     });
-
-    // Para que se cierre solo al tocar un enlace
     document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
         navMenu.classList.remove('active');
         mobileMenu.classList.remove('open');
