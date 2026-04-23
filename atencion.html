@@ -7,113 +7,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
-        /* VARIABLES DE MARCA */
         :root {
             --primario: #1a1a1a;
-            --acento: #A0522D; /* Color óxido */
+            --acento: #A0522D;
             --texto: #333;
             --crema: #F9F7F2;
             --serif: 'Lora', serif;
             --sans: 'Inter', sans-serif;
         }
 
-        /* ESTILOS BASE */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: var(--sans); 
-            color: var(--texto); 
-            line-height: 1.6; 
-            background-color: #fff;
-            overflow-x: hidden;
-        }
+        body { font-family: var(--sans); color: var(--texto); line-height: 1.6; background-color: #fff; overflow-x: hidden; }
 
-        /* HEADER: LOGO + TEXTO PEGADO */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            background-color: white;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%; background-color: white; position: sticky; top: 0; z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
-        .logo-contenedor {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
+        .logo-contenedor { display: flex; align-items: center; gap: 12px; }
         .logo-header { height: 38px; width: auto; }
+        .nombre-institucion { font-family: var(--sans); font-size: 0.75rem; color: #999; letter-spacing: 1px; text-transform: uppercase; border-left: 1px solid #eee; padding-left: 12px; line-height: 1; }
 
-        .nombre-institucion {
-            font-family: var(--sans);
-            font-size: 0.75rem;
-            color: #999;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-left: 1px solid #eee;
-            padding-left: 12px;
-            line-height: 1;
-        }
-
-        .nav-menu a {
-            font-family: var(--sans);
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: var(--primario);
-            margin-left: 20px;
-            transition: 0.3s;
-        }
+        .nav-menu a { font-family: var(--sans); font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: var(--primario); margin-left: 20px; transition: 0.3s; }
         .nav-menu a:hover { color: var(--acento); }
 
-        /* HERO DIFUMINADO */
         .hero-diagonal {
-            height: 40vh; /* Comprimido levemente de 48vh a 40vh */
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            overflow: hidden;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-            background-color: #1a1a1a;
+            height: 40vh; position: relative; display: flex; justify-content: center; align-items: center;
+            color: white; overflow: hidden; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); background-color: #1a1a1a;
         }
-
         .hero-diagonal::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url('portada.png') no-repeat center / cover;
-            filter: blur(12px) brightness(0.5);
-            transform: scale(1.1);
-            z-index: 1;
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('portada.png') no-repeat center / cover; filter: blur(12px) brightness(0.5); transform: scale(1.1); z-index: 1;
         }
-
         .hero-content { position: relative; z-index: 10; text-align: center; }
-        .hero-content h1 {
-            font-family: var(--serif);
-            font-size: 3.5rem; /* Ajustado de 4.5rem para mejor lectura */
-            letter-spacing: 15px;
-            margin: 0;
-            text-transform: uppercase;
-            font-weight: 300;
-            text-shadow: 0 0 20px rgba(255,255,255,0.1), 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .hero-content p { letter-spacing: 10px; font-size: 12px; opacity: 0.8; margin-top: 10px; }
+        .hero-content h1 { font-family: var(--serif); font-size: 3.5rem; letter-spacing: 15px; text-transform: uppercase; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 
-        /* SECCIÓN ATENCIÓN Y TARJETAS */
-        .seccion-atencion {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            padding: 40px 10%; /* Ajustado de 60px a 40px para comprimir */
-            flex-wrap: wrap;
-        }
+        /* TARJETAS CON INDICADOR */
+        .seccion-atencion { display: flex; justify-content: center; gap: 40px; padding: 40px 10%; flex-wrap: wrap; }
 
         .caja-cuadrada-flip {
             width: 320px;
@@ -130,7 +61,10 @@
             cursor: pointer;
         }
 
-        .caja-cuadrada-flip:hover .flip-inner { transform: rotateY(180deg); }
+        /* Pequeño salto antes de girar */
+        .caja-cuadrada-flip:hover .flip-inner { 
+            transform: rotateY(180deg) translateY(-10px); 
+        }
 
         .cara {
             position: absolute;
@@ -143,20 +77,26 @@
             align-items: center;
             padding: 30px;
             border: 1px solid #eee;
+            transition: 0.3s;
         }
 
         .frente { background-color: white; color: var(--primario); z-index: 2; }
         .frente h4 { font-family: var(--serif); font-size: 1.4rem; letter-spacing: 3px; text-align: center; margin-bottom: 10px; }
-        
-        /* Micro-frase diferencial en el frente */
-        .frente .tagline { 
-            font-family: var(--serif); 
-            font-style: italic; 
-            font-size: 0.9rem; 
-            color: var(--acento); 
-            opacity: 0.8; 
-            border-top: 1px solid #eee;
-            padding-top: 10px;
+        .frente .tagline { font-family: var(--serif); font-style: italic; font-size: 0.9rem; color: var(--acento); opacity: 0.8; border-top: 1px solid #eee; padding-top: 10px; }
+
+        /* INDICADOR DE GIRO (La flechita) */
+        .indicador-giro {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 1.2rem;
+            color: #ccc;
+            animation: bounceSoft 2s infinite;
+        }
+
+        @keyframes bounceSoft {
+            0%, 100% { transform: translateX(0); opacity: 0.5; }
+            50% { transform: translateX(-5px); opacity: 1; }
         }
 
         .dorso { color: white; transform: rotateY(180deg); text-align: center; }
@@ -166,29 +106,15 @@
         .color-acento { background-color: var(--acento); }
         .color-primario { background-color: #1a1a1a; }
 
-        /* ANIMACIONES DE PÁGINA */
-        .revelar {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .revelar.activo { opacity: 1; transform: translateY(0); }
-
-        .fade-in-inicio { animation: fadeInSuave 1.2s ease forwards; }
-        @keyframes fadeInSuave { from { opacity: 0; } to { opacity: 1; } }
-
-        /* FOOTER */
         .footer-trama { padding: 60px 0 40px; text-align: center; border-top: 1px solid #f0f0f0; margin-top: 40px;}
-        .footer-marca { font-family: var(--serif); letter-spacing: 5px; color: var(--primario); font-size: 1rem; margin-bottom: 15px; }
         .footer-creditos { font-family: var(--sans); font-size: 0.75rem; color: #999; letter-spacing: 1px; text-transform: uppercase; }
         .footer-creditos a { color: var(--acento); text-decoration: none; font-weight: 600; }
         
-        /* RESPONSIVE */
+        /* HAMBURGUESA */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; z-index: 1100; }
+        .menu-toggle span { width: 25px; height: 3px; background-color: var(--primario); transition: 0.4s; }
+
         @media (max-width: 768px) {
-            .hero-diagonal h1 { font-size: 2.5rem; letter-spacing: 8px; }
-            .seccion-atencion { gap: 20px; padding: 20px 5%; }
-            .caja-cuadrada-flip { width: 100%; max-width: 320px; height: 320px; }
-            header { justify-content: space-between; }
             .menu-toggle { display: flex; margin-left: auto; }
             .nav-menu {
                 position: fixed; right: -100%; top: 0; background: white;
@@ -197,26 +123,19 @@
                 box-shadow: -10px 0 30px rgba(0,0,0,0.1); z-index: 1000;
             }
             .nav-menu.active { right: 0; }
+            .nav-menu a { margin: 15px 0; font-size: 1rem; }
         }
-
-        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; z-index: 1100; }
-        .menu-toggle span { width: 25px; height: 3px; background-color: var(--primario); transition: 0.4s; }
-        .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
-        .menu-toggle.open span:nth-child(2) { opacity: 0; }
-        .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
     </style>
 </head>
 
-<body class="fade-in-inicio">
+<body>
 
     <header>
         <div class="logo-contenedor">
             <img src="trama.png" alt="Logo Trama" class="logo-header">
             <span class="nombre-institucion">EQUIPO TRAMA</span>
         </div>
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span><span></span><span></span>
-        </div>
+        <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
         <nav class="nav-menu">
             <a href="index.html">Inicio</a>
             <a href="atencion.html">Atención</a>
@@ -233,19 +152,20 @@
     </section>
 
     <main>
-        <section class="revelar" style="text-align: center; padding: 50px 10% 10px;">
+        <section style="text-align: center; padding: 50px 10% 10px;">
             <h2 style="font-family: var(--serif); color: var(--acento); font-size: 2rem; margin-bottom: 15px;">Modalidades de acompañamiento</h2>
             <p style="font-family: var(--serif); font-style: italic; opacity: 0.8; max-width: 700px; margin: 0 auto; line-height: 1.8; font-size: 1.1rem;">
-                Entendemos que cada proceso es singular. Por ello, disponemos de espacios presenciales y virtuales que permiten sostener la continuidad de los tratamientos.
+                Entendemos que cada proceso es singular. Por ello, disponemos de espacios presenciales y virtuales.
             </p>
         </section>
 
-        <div class="seccion-atencion revelar">
+        <div class="seccion-atencion">
             <div class="caja-cuadrada-flip">
                 <div class="flip-inner">
                     <div class="cara frente">
                         <h4>ATENCIÓN <br> PRESENCIAL</h4>
                         <p class="tagline">Encuentros en consultorio</p>
+                        <div class="indicador-giro">↻</div>
                     </div>
                     <div class="cara dorso color-acento">
                         <h5>SEDES</h5>
@@ -262,6 +182,7 @@
                     <div class="cara frente">
                         <h4>ATENCIÓN <br> VIRTUAL</h4>
                         <p class="tagline">Acompañamiento a distancia</p>
+                        <div class="indicador-giro">↻</div>
                     </div>
                     <div class="cara dorso color-primario">
                         <h5>ONLINE</h5>
@@ -275,32 +196,16 @@
     </main>
 
     <footer class="footer-trama">
-        <p class="footer-marca">EQUIPO TRAMA</p>
-        <p class="footer-creditos">
-            Creado por <a href="http://www.somosnomade.com.ar" target="_blank">Nómade</a> - 2026
-        </p>
+        <p class="footer-creditos">Creado por <a href="http://www.somosnomade.com.ar" target="_blank">Nómade</a> - 2026</p>
     </footer>
 
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('activo');
-                }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.revelar').forEach((el) => observer.observe(el));
-
         const mobileMenu = document.getElementById('mobile-menu');
         const navMenu = document.querySelector('.nav-menu');
         mobileMenu.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             mobileMenu.classList.toggle('open');
         });
-        document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            mobileMenu.classList.remove('open');
-        }));
     </script>
 </body>
 </html>
