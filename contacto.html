@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
- <meta charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atención | EQUIPO TRAMA</title>
- <link rel="icon" type="image/png" href="logo2.png">
+    <title>Contacto | EQUIPO TRAMA</title>
+    <link rel="icon" type="image/png" href="logo2.png">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
@@ -198,106 +199,104 @@
         .footer-creditos { font-family: var(--sans); font-size: 0.75rem; color: #999; letter-spacing: 1px; text-transform: uppercase; }
         .footer-creditos a { color: var(--acento); text-decoration: none; font-weight: 600; }
 
-       
-     /* --- RESPONSIVE CONTACTO --- */
-@media (max-width: 992px) {
-    .contenedor-contacto {
-        grid-template-columns: 1fr; /* Una columna */
-        gap: 40px;
-        padding: 40px 8%;
-    }
+        /* RESPONSIVE CONTACTO */
+        @media (max-width: 992px) {
+            .contenedor-contacto {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 8%;
+            }
 
-    .info-red {
-        padding-right: 0;
-        text-align: center;
-    }
+            .info-red {
+                padding-right: 0;
+                text-align: center;
+            }
 
-    .caja-contacto-cuadrada {
-        padding: 30px;
-    }
-}
-   /* --- ESTILOS DEL BOTÓN Y MENÚ --- */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-    z-index: 1100;
-}
+            .caja-contacto-cuadrada {
+                padding: 30px;
+            }
+        }
 
-.menu-toggle span {
-    width: 25px;
-    height: 3px;
-    background-color: var(--primario);
-    transition: 0.4s;
-}
+        /* ESTILOS DEL BOTÓN Y MENÚ */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1100;
+        }
 
-@media (max-width: 768px) {
-    header {
-        justify-content: space-between; /* Logo a un lado, botón al otro */
-    }
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primario);
+            transition: 0.4s;
+        }
 
-    .menu-toggle {
-        display: flex;
-        margin-left: auto; /* Empuja el botón al margen derecho */
-    }
+        @media (max-width: 768px) {
+            header {
+                justify-content: space-between;
+            }
 
-    .nav-menu {
-        position: fixed;
-        right: -100%; /* Escondido a la derecha */
-        top: 0;
-        background: white;
-        width: 80%;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-        z-index: 1000;
-    }
+            .menu-toggle {
+                display: flex;
+                margin-left: auto;
+            }
 
-    /* Clase que activa el JavaScript */
-    .nav-menu.active {
-        right: 0;
-    }
+            .nav-menu {
+                position: fixed;
+                right: -100%;
+                top: 0;
+                background: white;
+                width: 80%;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+                z-index: 1000;
+            }
 
-    .nav-menu a {
-        margin: 15px 0;
-        font-size: 1rem;
-        letter-spacing: 2px;
-    }
+            .nav-menu.active {
+                right: 0;
+            }
 
-    /* Animación de las rayitas a 'X' */
-    .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
-    .menu-toggle.open span:nth-child(2) { opacity: 0; }
-    .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
-}
+            .nav-menu a {
+                margin: 15px 0;
+                font-size: 1rem;
+                letter-spacing: 2px;
+            }
+
+            .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+            .menu-toggle.open span:nth-child(2) { opacity: 0; }
+            .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+        }
     </style>
 </head>
 
 <body class="fade-in-inicio">
 
-  <header>
-    <div class="logo-contenedor">
-        <img src="trama.png" alt="Logo Trama" class="logo-header">
-        <span class="nombre-institucion">EQUIPO TRAMA</span>
-    </div>
-    
-    <div class="menu-toggle" id="mobile-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+    <header>
+        <div class="logo-contenedor">
+            <img src="trama.png" alt="Logo Trama" class="logo-header">
+            <span class="nombre-institucion">EQUIPO TRAMA</span>
+        </div>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
-    <nav class="nav-menu">
+        <nav class="nav-menu">
             <a href="index">Inicio</a>
             <a href="atencion">Atención</a>
             <a href="propuestas">Propuestas</a>
             <a href="contacto">Contacto</a>
-    </nav>
-</header>
+        </nav>
+    </header>
 
     <section class="hero-diagonal">
         <div class="hero-content">
@@ -318,7 +317,7 @@
             
             <div class="info-red revelar">
                 <h3>NUESTRA RED</h3>
-                <p>Si buscás atención psicológica o participar de nuestras propuestas, podés contactarnos directamente a través de nuestros canales digitales.</p>
+                <p>Si estás buscando atención o querés sumarte a nuestras propuestas, podés contactarnos directamente a través de nuestros canales digitales.</p>
                 <div style="width: 40px; height: 1px; background-color: var(--acento); margin-top: 30px;"></div>
             </div>
 
@@ -361,23 +360,19 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.revelar').forEach((el) => observer.observe(el));
+
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            mobileMenu.classList.remove('open');
+        }));
     </script>
-<script>
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navMenu = document.querySelector('.nav-menu');
-
-    // Al hacer clic en las rayitas
-    mobileMenu.addEventListener('click', () => {
-        // Toggle (quitar o poner) las clases que definimos en el CSS
-        navMenu.classList.toggle('active');
-        mobileMenu.classList.toggle('open');
-    });
-
-    // Para que se cierre solo al tocar un enlace
-    document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        mobileMenu.classList.remove('open');
-    }));
-</script>
 </body>
 </html>
