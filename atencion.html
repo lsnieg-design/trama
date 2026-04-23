@@ -73,7 +73,7 @@
 
         /* HERO DIFUMINADO */
         .hero-diagonal {
-            height: 48vh;
+            height: 40vh; /* Comprimido levemente de 48vh a 40vh */
             position: relative;
             display: flex;
             justify-content: center;
@@ -97,21 +97,21 @@
         .hero-content { position: relative; z-index: 10; text-align: center; }
         .hero-content h1 {
             font-family: var(--serif);
-            font-size: 4.5rem;
-            letter-spacing: 20px;
+            font-size: 3.5rem; /* Ajustado de 4.5rem para mejor lectura */
+            letter-spacing: 15px;
             margin: 0;
             text-transform: uppercase;
             font-weight: 300;
             text-shadow: 0 0 20px rgba(255,255,255,0.1), 0 10px 30px rgba(0,0,0,0.5);
         }
-        .hero-content p { letter-spacing: 12px; font-size: 13px; opacity: 0.8; margin-top: 10px; }
+        .hero-content p { letter-spacing: 10px; font-size: 12px; opacity: 0.8; margin-top: 10px; }
 
         /* SECCIÓN ATENCIÓN Y TARJETAS */
         .seccion-atencion {
             display: flex;
             justify-content: center;
             gap: 40px;
-            padding: 60px 10%;
+            padding: 40px 10%; /* Ajustado de 60px a 40px para comprimir */
             flex-wrap: wrap;
         }
 
@@ -146,7 +146,18 @@
         }
 
         .frente { background-color: white; color: var(--primario); z-index: 2; }
-        .frente h4 { font-family: var(--serif); font-size: 1.5rem; letter-spacing: 3px; text-align: center; }
+        .frente h4 { font-family: var(--serif); font-size: 1.4rem; letter-spacing: 3px; text-align: center; margin-bottom: 10px; }
+        
+        /* Micro-frase diferencial en el frente */
+        .frente .tagline { 
+            font-family: var(--serif); 
+            font-style: italic; 
+            font-size: 0.9rem; 
+            color: var(--acento); 
+            opacity: 0.8; 
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
 
         .dorso { color: white; transform: rotateY(180deg); text-align: center; }
         .dorso h5 { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 10px; width: 100%; opacity: 0.8; }
@@ -171,113 +182,49 @@
         .footer-marca { font-family: var(--serif); letter-spacing: 5px; color: var(--primario); font-size: 1rem; margin-bottom: 15px; }
         .footer-creditos { font-family: var(--sans); font-size: 0.75rem; color: #999; letter-spacing: 1px; text-transform: uppercase; }
         .footer-creditos a { color: var(--acento); text-decoration: none; font-weight: 600; }
-        /* --- RESPONSIVE ATENCIÓN / PROPUESTAS --- */
-@media (max-width: 768px) {
-    .hero-diagonal h1 {
-        font-size: 2.5rem; /* Título más chico */
-        letter-spacing: 8px;
-    }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-diagonal h1 { font-size: 2.5rem; letter-spacing: 8px; }
+            .seccion-atencion { gap: 20px; padding: 20px 5%; }
+            .caja-cuadrada-flip { width: 100%; max-width: 320px; height: 320px; }
+            header { justify-content: space-between; }
+            .menu-toggle { display: flex; margin-left: auto; }
+            .nav-menu {
+                position: fixed; right: -100%; top: 0; background: white;
+                width: 80%; height: 100vh; display: flex; flex-direction: column;
+                justify-content: center; align-items: center; transition: 0.5s;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1); z-index: 1000;
+            }
+            .nav-menu.active { right: 0; }
+        }
 
-    .seccion-atencion, .propuestas-grid {
-        gap: 20px;
-        padding: 40px 5%;
-    }
-
-    .caja-cuadrada-flip, .propuesta-card-cuadrada {
-        width: 100%; /* Las tarjetas ocupan todo el ancho disponible */
-        max-width: 320px;
-        height: auto;
-        min-height: 300px;
-    }
-
-    /* En celulares, a veces el hover es molesto, 
-       puedes hacer que el dorso se vea al tocar una vez */
-    .flip-inner {
-        transition: transform 0.6s;
-    }
-}
-     /* --- ESTILOS DEL BOTÓN Y MENÚ --- */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-    z-index: 1100;
-}
-
-.menu-toggle span {
-    width: 25px;
-    height: 3px;
-    background-color: var(--primario);
-    transition: 0.4s;
-}
-
-@media (max-width: 768px) {
-    header {
-        justify-content: space-between; /* Logo a un lado, botón al otro */
-    }
-
-    .menu-toggle {
-        display: flex;
-        margin-left: auto; /* Empuja el botón al margen derecho */
-    }
-
-    .nav-menu {
-        position: fixed;
-        right: -100%; /* Escondido a la derecha */
-        top: 0;
-        background: white;
-        width: 80%;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-        z-index: 1000;
-    }
-
-    /* Clase que activa el JavaScript */
-    .nav-menu.active {
-        right: 0;
-    }
-
-    .nav-menu a {
-        margin: 15px 0;
-        font-size: 1rem;
-        letter-spacing: 2px;
-    }
-
-    /* Animación de las rayitas a 'X' */
-    .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
-    .menu-toggle.open span:nth-child(2) { opacity: 0; }
-    .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
-}
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; z-index: 1100; }
+        .menu-toggle span { width: 25px; height: 3px; background-color: var(--primario); transition: 0.4s; }
+        .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+        .menu-toggle.open span:nth-child(2) { opacity: 0; }
+        .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
     </style>
 </head>
 
 <body class="fade-in-inicio">
 
     <header>
-    <div class="logo-contenedor">
-        <img src="trama.png" alt="Logo Trama" class="logo-header">
-        <span class="nombre-institucion">EQUIPO TRAMA</span>
-    </div>
-    
-    <div class="menu-toggle" id="mobile-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+        <div class="logo-contenedor">
+            <img src="trama.png" alt="Logo Trama" class="logo-header">
+            <span class="nombre-institucion">EQUIPO TRAMA</span>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span><span></span><span></span>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html">Inicio</a>
+            <a href="atencion.html">Atención</a>
+            <a href="propuestas.html">Propuestas</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
 
-    <nav class="nav-menu">
-        <a href="index.html">Inicio</a>
-        <a href="atencion.html">Atención</a>
-        <a href="propuestas.html">Propuestas</a>
-        <a href="contacto.html">Contacto</a>
-    </nav>
-</header>
     <section class="hero-diagonal">
         <div class="hero-content">
             <h1>ATENCIÓN</h1>
@@ -286,10 +233,10 @@
     </section>
 
     <main>
-        <section class="revelar" style="text-align: center; padding: 60px 10% 20px;">
+        <section class="revelar" style="text-align: center; padding: 50px 10% 10px;">
             <h2 style="font-family: var(--serif); color: var(--acento); font-size: 2rem; margin-bottom: 15px;">Modalidades de acompañamiento</h2>
             <p style="font-family: var(--serif); font-style: italic; opacity: 0.8; max-width: 700px; margin: 0 auto; line-height: 1.8; font-size: 1.1rem;">
-                Entendemos que cada proceso es singular. Por ello, disponemos de espacios presenciales y virtuales que permiten sostener la continuidad de los tratamientos con compromiso y ética profesional.
+                Entendemos que cada proceso es singular. Por ello, disponemos de espacios presenciales y virtuales que permiten sostener la continuidad de los tratamientos.
             </p>
         </section>
 
@@ -298,6 +245,7 @@
                 <div class="flip-inner">
                     <div class="cara frente">
                         <h4>ATENCIÓN <br> PRESENCIAL</h4>
+                        <p class="tagline">Encuentros en consultorio</p>
                     </div>
                     <div class="cara dorso color-acento">
                         <h5>SEDES</h5>
@@ -313,6 +261,7 @@
                 <div class="flip-inner">
                     <div class="cara frente">
                         <h4>ATENCIÓN <br> VIRTUAL</h4>
+                        <p class="tagline">Acompañamiento a distancia</p>
                     </div>
                     <div class="cara dorso color-primario">
                         <h5>ONLINE</h5>
@@ -333,7 +282,6 @@
     </footer>
 
     <script>
-        // Observador para animaciones al bajar el scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -341,25 +289,18 @@
                 }
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.revelar').forEach((el) => observer.observe(el));
+
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('open');
+        });
+        document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            mobileMenu.classList.remove('open');
+        }));
     </script>
-<script>
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navMenu = document.querySelector('.nav-menu');
-
-    // Al hacer clic en las rayitas
-    mobileMenu.addEventListener('click', () => {
-        // Toggle (quitar o poner) las clases que definimos en el CSS
-        navMenu.classList.toggle('active');
-        mobileMenu.classList.toggle('open');
-    });
-
-    // Para que se cierre solo al tocar un enlace
-    document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        mobileMenu.classList.remove('open');
-    }));
-</script>
 </body>
 </html>
