@@ -48,34 +48,43 @@
         }
         .nav-menu a:hover { color: var(--acento); }
 
-        /* HERO MINIMAL */
-        .hero-minimal {
-            height: 30vh; 
-            background-image: linear-gradient(rgba(253, 251, 247, 0.2), rgba(253, 251, 247, 0.2)), url('fondo.png'); 
-            background-repeat: no-repeat; background-position: center; background-size: cover; 
-            display: flex; justify-content: center; align-items: center;
-            position: relative; z-index: 5; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 82%);
-            padding: 40px 0;
-        }
-        .logo-hero { width: 420px; height: auto; max-width: 85%; position: relative; z-index: 10; }
+        //* --- HERO MÁS COMPACTO --- */
+.hero-minimal {
+    height: 22vh; /* Bajamos de 30vh a 22vh */
+    padding: 20px 0; /* Menos espacio arriba y abajo del logo */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%); /* Diagonal menos pronunciada */
+    background-image: linear-gradient(rgba(253, 251, 247, 0.2), rgba(253, 251, 247, 0.2)), url('fondo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+       .logo-hero {
+    width: 350px; /* Logo central un poco más chico para que no empuje el alto */
+    height: auto;
+    max-width: 80%;
+}
+        /* --- FRANJA NEGRA MÁS APRETADA --- */
+.franja-negra {
+    background-color: var(--negro-trama);
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 8;
+    /* Reducimos el padding de 140px a 60px arriba y 80px abajo */
+    padding: 60px 15% 80px; 
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+    margin-top: -30px; /* Pegamos más al hero */
+}
 
-        /* FRANJA NEGRA (NUEVA ESTRUCTURA DE TEXTO) */
-        .franja-negra {
-            background-color: var(--negro-trama);
-            color: white; text-align: center; position: relative; z-index: 8;
-            padding: 140px 15% 160px; 
-            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
-            margin-top: -50px; 
-        }
-
-        .frase-nucleo {
-            font-family: var(--serif);
-            font-size: 2.2rem;
-            color: var(--acento);
-            margin-bottom: 25px;
-            font-style: italic;
-            display: block;
-        }
+       .frase-nucleo {
+    font-size: 1.8rem; /* Un poco más chica para que no ocupe tantas líneas en móvil */
+    margin-bottom: 15px;
+}
 
         .intro-texto p {
             max-width: 750px; 
@@ -85,24 +94,24 @@
             line-height: 1.8;
             opacity: 0.9;
         }
+/* --- PILARES MÁS CERCA --- */
+.seccion-pilares { 
+    padding: 60px 10%; /* Bajamos de 100px a 60px */
+    text-align: center;
+    margin-top: -10px;
+}
 
-        /* SECCIÓN PILARES */
-        .seccion-pilares { padding: 100px 10%; text-align: center; position: relative; z-index: 15; }
-        .seccion-pilares h3 {
-            font-family: var(--serif); color: var(--acento);
-            font-size: 1.6rem; letter-spacing: 5px; text-transform: uppercase;
-            margin-bottom: 60px;
-        }
-
+.seccion-pilares h3 {
+    margin-bottom: 35px; /* Menos espacio entre el título y las cajas */
+}
         .grilla-pilares {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 25px; max-width: 1100px; margin: 0 auto;
         }
 
         .caja-pilar {
-            background: white; padding: 50px 35px; border: 1px solid #f2f2f2;
-            transition: all 0.4s ease; text-align: left;
-        }
+    padding: 30px 25px; /* Bajamos de 50px a 30px */
+}
 
         .caja-pilar h4 {
             font-family: var(--sans); font-weight: 700; text-transform: uppercase; 
