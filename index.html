@@ -19,7 +19,7 @@
 
         body { background: var(--fondo-claro); color: var(--texto); font-family: var(--sans); margin: 0; padding: 0; overflow-x: hidden; }
 
-        /* HEADER: Logo a la izq y Menú a la der (Unificado) */
+        /* HEADER */
         header {
             background: white; 
             padding: 0 5%; 
@@ -47,26 +47,26 @@
             letter-spacing: 1.5px; transition: 0.3s;
         }
 
-        /* HERO: Logo CENTRADO y comprimido */
+        /* --- HERO: ENSANCHADO (Más alto) --- */
         .hero-minimal {
-            height: 25vh; /* Bajado de 35vh para comprimir el inicio */
+            height: 38vh; /* ENSANCHADO: Subimos de 25vh a 38vh para impacto */
             background-image: linear-gradient(rgba(253, 251, 247, 0.2), rgba(253, 251, 247, 0.2)), url('fondo.png'); 
             background-repeat: no-repeat; background-position: center; background-size: cover; 
             display: flex; justify-content: center; align-items: center;
-            position: relative; z-index: 5; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+            position: relative; z-index: 5; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
         }
         .logo-hero { 
-            width: 340px; /* Reducido levemente para ahorrar espacio vertical */
+            width: 400px; /* Recuperamos el tamaño generoso del logo */
             height: auto; max-width: 85%; position: relative; z-index: 10; 
         }
 
-        /* FRANJA NEGRA: Alturas optimizadas */
+        /* FRANJA NEGRA: Mantenemos la compresión */
         .franja-negra {
             background-color: var(--negro-trama);
             color: white; text-align: center; position: relative; z-index: 8;
-            padding: 50px 15% 70px; /* Reducido de 70px/90px para mayor densidad */
+            padding: 50px 15% 70px; /* Mantenemos el padding comprimido */
             clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
-            margin-top: -30px; /* Más pegado al hero */
+            margin-top: -45px; /* Pegado para que la diagonal ensanchada no haga hueco */
         }
 
         .frase-nucleo {
@@ -79,7 +79,7 @@
             font-size: 1.15rem; line-height: 1.6; opacity: 0.9;
         }
 
-        /* PILARES: Espacios reducidos */
+        /* PILARES: Mantenemos la compresión */
         .seccion-pilares { padding: 50px 10%; text-align: center; position: relative; z-index: 15; }
         .seccion-pilares h3 {
             font-family: var(--serif); color: var(--acento);
@@ -124,7 +124,7 @@
             .menu-toggle.open span:nth-child(2) { opacity: 0; }
             .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
 
-            .hero-minimal { height: 18vh; }
+            .hero-minimal { height: 30vh; } /* También ensanchamos en móvil */
             .franja-negra { padding: 40px 8% 50px; }
             .frase-nucleo { font-size: 1.3rem; }
         }
