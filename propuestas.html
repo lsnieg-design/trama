@@ -104,6 +104,38 @@
             .nav-menu a { margin: 15px 0; font-size: 1rem; }
             .caja-flip { width: 100%; max-width: 290px; }
         }
+        /* BOTÓN FLOTANTE WHATSAPP */
+.wpp-flotante {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--acento); /* Color óxido de tu marca */
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.wpp-flotante:hover {
+    transform: scale(1.1) translateY(-5px);
+    background-color: var(--primario); /* Cambia al azul noche al pasar el mouse */
+}
+
+/* Icono simple estilo minimalista */
+.wpp-flotante svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+}
     </style>
 </head>
 <body>
@@ -226,5 +258,10 @@
             mobileMenu.classList.remove('open');
         }));
     </script>
+    <a href="https://wa.me/5491158296225" class="wpp-flotante" target="_blank" aria-label="Chat en WhatsApp">
+    <svg viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.006.332.013c.101.007.238-.038.372.283.134.321.462 1.127.502 1.208.04.081.067.175.013.283-.054.108-.081.186-.161.28l-.242.28c-.081.093-.165.195-.07.359.095.163.421.696.904 1.127.621.554 1.144.726 1.303.807.159.081.252.068.346-.041.093-.108.401-.468.508-.627.107-.159.214-.134.359-.081.145.054.915.431 1.074.512.159.081.265.122.304.189.04.067.04.391-.104.796z"/>
+    </svg>
+</a>
 </body>
 </html>
