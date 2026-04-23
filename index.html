@@ -19,7 +19,7 @@
 
         body { background: var(--fondo-claro); color: var(--texto); font-family: var(--sans); margin: 0; padding: 0; overflow-x: hidden; }
 
-        /* HEADER UNIFICADO */
+        /* HEADER: Logo a la izq y Menú a la der (Unificado) */
         header {
             background: white; 
             padding: 0 5%; 
@@ -46,88 +46,66 @@
             font-size: 0.7rem; font-weight: 600; text-transform: uppercase; 
             letter-spacing: 1.5px; transition: 0.3s;
         }
-        .nav-menu a:hover { color: var(--acento); }
 
-        //* --- HERO MÁS COMPACTO --- */
-.hero-minimal {
-    height: 22vh; /* Bajamos de 30vh a 22vh */
-    padding: 20px 0; /* Menos espacio arriba y abajo del logo */
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%); /* Diagonal menos pronunciada */
-    background-image: linear-gradient(rgba(253, 251, 247, 0.2), rgba(253, 251, 247, 0.2)), url('fondo.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 5;
-}
-       .logo-hero {
-    width: 350px; /* Logo central un poco más chico para que no empuje el alto */
-    height: auto;
-    max-width: 80%;
-}
-        /* --- FRANJA NEGRA MÁS APRETADA --- */
-.franja-negra {
-    background-color: var(--negro-trama);
-    color: white;
-    text-align: center;
-    position: relative;
-    z-index: 8;
-    /* Reducimos el padding de 140px a 60px arriba y 80px abajo */
-    padding: 60px 15% 80px; 
-    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
-    margin-top: -30px; /* Pegamos más al hero */
-}
+        /* HERO: Logo CENTRADO y comprimido */
+        .hero-minimal {
+            height: 25vh; /* Bajado de 35vh para comprimir el inicio */
+            background-image: linear-gradient(rgba(253, 251, 247, 0.2), rgba(253, 251, 247, 0.2)), url('fondo.png'); 
+            background-repeat: no-repeat; background-position: center; background-size: cover; 
+            display: flex; justify-content: center; align-items: center;
+            position: relative; z-index: 5; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+        }
+        .logo-hero { 
+            width: 340px; /* Reducido levemente para ahorrar espacio vertical */
+            height: auto; max-width: 85%; position: relative; z-index: 10; 
+        }
 
-       .frase-nucleo {
-    font-size: 1.8rem; /* Un poco más chica para que no ocupe tantas líneas en móvil */
-    margin-bottom: 15px;
-}
+        /* FRANJA NEGRA: Alturas optimizadas */
+        .franja-negra {
+            background-color: var(--negro-trama);
+            color: white; text-align: center; position: relative; z-index: 8;
+            padding: 50px 15% 70px; /* Reducido de 70px/90px para mayor densidad */
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+            margin-top: -30px; /* Más pegado al hero */
+        }
+
+        .frase-nucleo {
+            font-family: var(--serif); font-size: 1.8rem; color: var(--acento);
+            margin-bottom: 15px; font-style: italic; display: block;
+        }
 
         .intro-texto p {
-            max-width: 750px; 
-            margin: 0 auto;
-            font-family: var(--serif); 
-            font-size: 1.25rem; 
-            line-height: 1.8;
-            opacity: 0.9;
+            max-width: 750px; margin: 0 auto; font-family: var(--serif); 
+            font-size: 1.15rem; line-height: 1.6; opacity: 0.9;
         }
-/* --- PILARES MÁS CERCA --- */
-.seccion-pilares { 
-    padding: 60px 10%; /* Bajamos de 100px a 60px */
-    text-align: center;
-    margin-top: -10px;
-}
 
-.seccion-pilares h3 {
-    margin-bottom: 35px; /* Menos espacio entre el título y las cajas */
-}
+        /* PILARES: Espacios reducidos */
+        .seccion-pilares { padding: 50px 10%; text-align: center; position: relative; z-index: 15; }
+        .seccion-pilares h3 {
+            font-family: var(--serif); color: var(--acento);
+            font-size: 1.4rem; letter-spacing: 4px; text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
         .grilla-pilares {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px; max-width: 1100px; margin: 0 auto;
+            gap: 15px; max-width: 1100px; margin: 0 auto;
         }
 
         .caja-pilar {
-    padding: 30px 25px; /* Bajamos de 50px a 30px */
-}
-
-        .caja-pilar h4 {
-            font-family: var(--sans); font-weight: 700; text-transform: uppercase; 
-            letter-spacing: 2px; margin-bottom: 15px; color: var(--primario); font-size: 0.9rem;
+            background: white; padding: 25px 20px; border: 1px solid #f2f2f2;
+            transition: all 0.4s ease; text-align: left;
         }
-
-        .caja-pilar p { font-size: 0.85rem; line-height: 1.7; color: #666; }
-        .caja-pilar:hover { border-color: var(--acento); transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.04); }
+        .caja-pilar h4 { font-family: var(--sans); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--primario); font-size: 0.8rem; }
+        .caja-pilar p { font-size: 0.75rem; line-height: 1.5; color: #666; }
+        .caja-pilar:hover { border-color: var(--acento); transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.03); }
 
         /* FOOTER */
-        .footer-trama { padding: 80px 0; text-align: center; background: white; border-top: 1px solid #eee; }
-        .footer-marca { font-family: var(--serif); letter-spacing: 5px; color: var(--primario); margin-bottom: 15px; font-size: 0.9rem;}
-        .footer-creditos { font-family: var(--sans); font-size: 0.75rem; color: #999; letter-spacing: 1px; text-transform: uppercase; }
+        .footer-trama { padding: 40px 0; text-align: center; border-top: 1px solid #eee; background: white; }
+        .footer-creditos { font-family: var(--sans); font-size: 0.7rem; color: #999; letter-spacing: 1px; text-transform: uppercase; }
         .footer-creditos a { color: var(--acento); text-decoration: none; font-weight: 600; }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE HAMBURGUESA */
         .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; z-index: 1100; }
         .menu-toggle span { width: 25px; height: 3px; background-color: var(--primario); transition: 0.4s; }
 
@@ -146,10 +124,9 @@
             .menu-toggle.open span:nth-child(2) { opacity: 0; }
             .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
 
-            .frase-nucleo { font-size: 1.6rem; }
-            .franja-negra { padding: 80px 8% 100px; }
-            .intro-texto p { font-size: 1.1rem; }
-            .logo-hero { width: 80%; }
+            .hero-minimal { height: 18vh; }
+            .franja-negra { padding: 40px 8% 50px; }
+            .frase-nucleo { font-size: 1.3rem; }
         }
     </style>
 </head>
@@ -208,10 +185,7 @@
 </main>
 
 <footer class="footer-trama">
-    <p class="footer-marca">EQUIPO TRAMA</p>
-    <p class="footer-creditos">
-        Creado por <a href="http://www.somosnomade.com.ar" target="_blank">Nómade</a> - 2026
-    </p>
+    <p class="footer-creditos">Creado por <a href="http://www.somosnomade.com.ar" target="_blank">Nómade</a> - 2026</p>
 </footer>
 
 <script>
