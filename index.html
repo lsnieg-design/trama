@@ -19,7 +19,7 @@
 
         body { background: var(--fondo-claro); color: var(--texto); font-family: var(--sans); margin: 0; padding: 0; overflow-x: hidden; }
 
-        /* HEADER */
+        /* HEADER: Logo a la izq y Menú a la der (Unificado) */
         header {
             background: white; 
             padding: 0 5%; 
@@ -47,26 +47,26 @@
             letter-spacing: 1.5px; transition: 0.3s;
         }
 
-        /* --- HERO: ENSANCHADO (Más alto) --- */
+        /* --- HERO: ENSANCHADO --- */
         .hero-minimal {
-            height: 38vh; /* ENSANCHADO: Subimos de 25vh a 38vh para impacto */
+            height: 38vh;
             background-image: linear-gradient(rgba(253, 251, 247, 0.2), rgba(253, 251, 247, 0.2)), url('fondo.png'); 
             background-repeat: no-repeat; background-position: center; background-size: cover; 
             display: flex; justify-content: center; align-items: center;
             position: relative; z-index: 5; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
         }
         .logo-hero { 
-            width: 400px; /* Recuperamos el tamaño generoso del logo */
+            width: 400px; 
             height: auto; max-width: 85%; position: relative; z-index: 10; 
         }
 
-        /* FRANJA NEGRA: Mantenemos la compresión */
+        /* FRANJA NEGRA */
         .franja-negra {
             background-color: var(--negro-trama);
             color: white; text-align: center; position: relative; z-index: 8;
-            padding: 50px 15% 70px; /* Mantenemos el padding comprimido */
+            padding: 50px 15% 70px; 
             clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
-            margin-top: -45px; /* Pegado para que la diagonal ensanchada no haga hueco */
+            margin-top: -45px; 
         }
 
         .frase-nucleo {
@@ -79,26 +79,48 @@
             font-size: 1.15rem; line-height: 1.6; opacity: 0.9;
         }
 
-        /* PILARES: Mantenemos la compresión */
-        .seccion-pilares { padding: 50px 10%; text-align: center; position: relative; z-index: 15; }
+        /* --- SECCIÓN PILARES REFORZADA --- */
+        .seccion-pilares { padding: 60px 10%; text-align: center; position: relative; z-index: 15; }
         .seccion-pilares h3 {
             font-family: var(--serif); color: var(--acento);
-            font-size: 1.4rem; letter-spacing: 4px; text-transform: uppercase;
-            margin-bottom: 30px;
+            font-size: 1.5rem; letter-spacing: 4px; text-transform: uppercase;
+            margin-bottom: 40px;
         }
 
         .grilla-pilares {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px; max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px; max-width: 1200px; margin: 0 auto;
         }
 
         .caja-pilar {
-            background: white; padding: 25px 20px; border: 1px solid #f2f2f2;
-            transition: all 0.4s ease; text-align: left;
+            background: white; padding: 35px 25px; 
+            border: 1px solid #f2f2f2;
+            border-top: 3px solid transparent; 
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
-        .caja-pilar h4 { font-family: var(--sans); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--primario); font-size: 0.8rem; }
-        .caja-pilar p { font-size: 0.75rem; line-height: 1.5; color: #666; }
-        .caja-pilar:hover { border-color: var(--acento); transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.03); }
+
+        .icon-pilar {
+            font-size: 1.5rem;
+            color: var(--acento);
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+
+        .caja-pilar h4 { font-family: var(--sans); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--primario); font-size: 0.85rem; margin: 0;}
+        .caja-pilar p { font-size: 0.8rem; line-height: 1.6; color: #666; margin: 0;}
+
+        .caja-pilar:hover { 
+            border-color: #eee;
+            border-top-color: var(--acento); 
+            transform: translateY(-8px); 
+            box-shadow: 0 15px 30px rgba(160, 82, 45, 0.05); 
+        }
+
+        .caja-pilar:hover .icon-pilar { opacity: 1; transform: scale(1.1); }
 
         /* FOOTER */
         .footer-trama { padding: 40px 0; text-align: center; border-top: 1px solid #eee; background: white; }
@@ -124,7 +146,7 @@
             .menu-toggle.open span:nth-child(2) { opacity: 0; }
             .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
 
-            .hero-minimal { height: 30vh; } /* También ensanchamos en móvil */
+            .hero-minimal { height: 30vh; }
             .franja-negra { padding: 40px 8% 50px; }
             .frase-nucleo { font-size: 1.3rem; }
         }
@@ -164,22 +186,31 @@
     <section class="seccion-pilares">
         <h3>Nuestros pilares</h3>
         <div class="grilla-pilares">
+            
             <div class="caja-pilar">
+                <div class="icon-pilar">◦</div>
                 <h4>Lo individual</h4>
-                <p>Un hilo que porta su propia historia, singular y única.</p>
+                <p>Un hilo que porta su propia historia, singular y única. El punto de partida de toda trama terapéutica.</p>
             </div>
+
             <div class="caja-pilar">
+                <div class="icon-pilar">⊛</div>
                 <h4>Lo grupal</h4>
-                <p>El entrecruce que nos sostiene con otros, donde la palabra circula.</p>
+                <p>El entrecruce que nos sostiene con otros, donde la palabra circula y se transforma en saber compartido.</p>
             </div>
+
             <div class="caja-pilar">
+                <div class="icon-pilar">⊕</div>
                 <h4>Lo social</h4>
-                <p>La red social y comunitaria que nos contiene y da pertenencia.</p>
+                <p>La red comunitaria que nos contiene y da pertenencia, expandiendo los límites del consultorio.</p>
             </div>
+
             <div class="caja-pilar">
+                <div class="icon-pilar">∿</div>
                 <h4>El tiempo</h4>
-                <p>Lo que se teje, se desteje y se vuelve a armar en cada proceso.</p>
+                <p>Lo que se teje, se desteje y se vuelve a armar. Respetamos los ritmos subjetivos de cada proceso.</p>
             </div>
+
         </div>
     </section>
 </main>
