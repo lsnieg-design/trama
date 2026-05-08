@@ -25,7 +25,7 @@
             background: white; padding: 0 5%; display: flex; justify-content: space-between; align-items: center;
             position: sticky; top: 0; z-index: 1000; height: 60px; box-shadow: 0 1px 5px rgba(0,0,0,0.02);
         }
-        .logo-contenedor { display: flex; align-items: center; gap: 12px; }
+        .logo-contenedor { display: flex; align-items: center; gap: 12px; text-decoration: none; }
         .logo-header { height: 35px; width: auto; }
         .nombre-institucion {
             font-family: var(--sans); font-size: 0.75rem; color: #999; letter-spacing: 1px; text-transform: uppercase;
@@ -37,14 +37,14 @@
         }
         .nav-menu a:hover { color: var(--acento); }
 
-        /* HERO */
-        .hero-minimal {
-            height: 38vh; background-image: linear-gradient(rgba(253, 251, 247, 0.2), rgba(253, 251, 247, 0.2)), url('fondo.png'); 
+        /* HERO SIN LOGO (IGUAL A OTRAS SECCIONES) */
+        .hero-diagonal {
+            height: 38vh; background-image: linear-gradient(rgba(20, 28, 32, 0.6), rgba(20, 28, 32, 0.6)), url('portada.png'); 
             background-repeat: no-repeat; background-position: center; background-size: cover; 
             display: flex; justify-content: center; align-items: center; position: relative; z-index: 5; 
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
         }
-        .logo-hero { width: 400px; height: auto; max-width: 85%; position: relative; z-index: 10; }
+        .hero-content h1 { font-family: var(--serif); font-size: 3.5rem; color: white; letter-spacing: 15px; text-transform: uppercase; font-weight: 300; }
 
         /* FRANJA NEGRA */
         .franja-negra {
@@ -52,6 +52,7 @@
             z-index: 8; padding: 50px 15% 70px; clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); margin-top: -45px; 
         }
         .frase-nucleo { font-family: var(--serif); font-size: 1.8rem; color: var(--acento); margin-bottom: 15px; font-style: italic; display: block; }
+        .intro-texto p { max-width: 750px; margin: 0 auto; font-family: var(--serif); font-size: 1.15rem; line-height: 1.6; opacity: 0.9; }
 
         /* GRID EQUIPO */
         .seccion-equipo { padding: 60px 10%; text-align: center; position: relative; z-index: 15; }
@@ -116,20 +117,20 @@
             .nav-menu a { margin: 15px 0; font-size: 1rem; }
             .modal-flex { flex-direction: column; align-items: center; text-align: center; }
             .modal-info { text-align: center; }
-            .hero-minimal { height: 30vh; }
+            .hero-diagonal h1 { font-size: 2rem; letter-spacing: 6px; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-contenedor">
+    <a href="/" class="logo-contenedor">
         <img src="trama.png" alt="Logo Trama" class="logo-header">
         <span class="nombre-institucion">EQUIPO TRAMA</span>
-    </div>
+    </a>
     <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
     <nav class="nav-menu">
-        <a href="index">Inicio</a>
+        <a href="/">Inicio</a>
         <a href="atencion">Atención</a>
         <a href="equipo">Equipo</a>
         <a href="propuestas">Propuestas</a>
@@ -137,15 +138,17 @@
     </nav>
 </header>
 
-<section class="hero-minimal">
-    <img src="trama.png" alt="Logo Equipo Trama" class="logo-hero">
+<section class="hero-diagonal">
+    <div class="hero-content">
+        <h1>EQUIPO</h1>
+    </div>
 </section>
 
 <main>
     <section class="franja-negra">
         <div class="intro-texto">
-            <span class="frase-nucleo">Profesionales en diálogo constante.</span>
-            <p>La mayor riqueza de nuestro equipo reside en la labor interdisciplinaria y el compromiso clínico.</p>
+            <span class="frase-nucleo">EQUIPO</span>
+            <p>Contamos con un equipo de profesionales comprometido con una práctica clínica ética y en constante formación académica.</p>
         </div>
     </section>
 
@@ -158,10 +161,10 @@
                 <button class="btn-conoceme" onclick="abrirPresentacion('noelia')">Conoceme más</button>
             </div>
             <div class="pro-card">
-                <div class="img-wrapper"><img src="lucia.jpg" alt="Lucía Snieg"></div>
+                <div class="img-wrapper"><img src="nicolas.jpg" alt="Nicolás Kokal"></div>
                 <h3>Nicolás Kokal</h3>
                 <p>Lic. Psicología UBA</p>
-                <button class="btn-conoceme" onclick="abrirPresentacion('lucia')">Conoceme más</button>
+                <button class="btn-conoceme" onclick="abrirPresentacion('nicolas')">Conoceme más</button>
             </div>
         </div>
     </section>
@@ -192,7 +195,6 @@
 </a>
 
 <script>
-    // Datos del equipo
     const equipoData = {
         noelia: {
             nombre: "Maria Noelia Gomez",
@@ -200,11 +202,11 @@
             foto: "noelia.jpg",
             bio: "Psicóloga clínica con formación en abordaje interdisciplinario. Cofundadora de Equipo Trama, dedicada a la construcción de espacios de salud mental con un fuerte marco ético."
         },
-        lucia: {
-            nombre: "Lucía Snieg",
-            cargo: "Lic. Prof. Educación Especial",
-            foto: "lucia.jpg",
-            bio: "Especialista en educación y recursos digitales aplicada a la pedagogía. Su labor se centra en potenciar los procesos subjetivos de aprendizaje y la gestión institucional."
+        nicolas: {
+            nombre: "Nicolás Kokal",
+            cargo: "Lic. Psicología UBA",
+            foto: "nicolas.jpg",
+            bio: "Licenciado en Psicología egresado de la Universidad de Buenos Aires. Su práctica se centra en la clínica individual, integrando una formación académica rigurosa con la singularidad de cada proceso terapéutico."
         }
     };
 
@@ -215,19 +217,19 @@
         document.getElementById('modal-cargo').innerText = p.cargo;
         document.getElementById('modal-foto').src = p.foto;
         document.getElementById('modal-bio').innerText = p.bio;
-        document.getElementById('btn-turno-link').href = `https://wa.me/5491158296225?text=Hola! Me gustaría coordinar una entrevista con ${p.nombre}`;
+        document.getElementById('btn-turno-link').href = `https://wa.me/5491158296225?text=Hola! Me gustaría coordinar con ${p.nombre}`;
         document.getElementById('modal-presentacion').style.display = 'flex';
     }
 
     function cerrarPresentacion() { document.getElementById('modal-presentacion').style.display = 'none'; }
 
-    // Scripts para menú y cierre de modal
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
     mobileMenu.addEventListener('click', () => {
         navMenu.classList.toggle('active');
         mobileMenu.classList.toggle('open');
     });
+
     window.onclick = (e) => { if(e.target == document.getElementById('modal-presentacion')) cerrarPresentacion(); };
 </script>
 </body>
