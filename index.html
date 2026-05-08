@@ -18,187 +18,328 @@
             --sans: 'Inter', sans-serif;
         }
 
-        body { background: var(--fondo-claro); color: var(--texto); font-family: var(--sans); margin: 0; padding: 0; overflow-x: hidden; }
+        body { 
+            background: var(--fondo-claro); 
+            color: var(--texto); 
+            font-family: var(--sans); 
+            margin: 0; 
+            padding: 0; 
+            overflow-x: hidden; 
+        }
 
-        /* HEADER: Logo a la izq y Menú a la der (Unificado) */
+        /* CIRCULOS ESTÉTICOS SUTILES (Estilo IG) */
+        body::before, body::after {
+            content: ""; 
+            position: fixed; 
+            border-radius: 50%; 
+            border: 1px solid var(--acento); 
+            opacity: 0.05; 
+            z-index: -1;
+        }
+        body::before { width: 300px; height: 300px; top: -100px; left: -100px; }
+        body::after { width: 500px; height: 500px; bottom: -200px; right: -200px; }
+
+        /* HEADER */
         header {
             background: white; 
             padding: 0 5%; 
-            display: flex;
-            justify-content: space-between;
+            display: flex; 
+            justify-content: space-between; 
             align-items: center;
             position: sticky; 
             top: 0; 
-            z-index: 1000;
+            z-index: 1000; 
             height: 60px; 
             box-shadow: 0 1px 5px rgba(0,0,0,0.02);
         }
 
-        .logo-contenedor { display: flex; align-items: center; gap: 12px; }
-        .logo-header { height: 35px; width: auto; }
-        .nombre-institucion {
-            font-family: var(--sans); font-size: 0.75rem; color: #999;
-            letter-spacing: 1px; text-transform: uppercase; border-left: 1px solid #eee;
-            padding-left: 12px; line-height: 1; font-weight: 600;
+        .logo-contenedor { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            text-decoration: none; 
         }
+
+        .logo-header { height: 35px; width: auto; }
+
+        .nombre-institucion {
+            font-family: var(--sans); 
+            font-size: 0.75rem; 
+            color: #999; 
+            letter-spacing: 1px; 
+            text-transform: uppercase; 
+            border-left: 1px solid #eee; 
+            padding-left: 12px; 
+            line-height: 1; 
+            font-weight: 600;
+        }
+
+        /* NAVEGACIÓN */
+        .nav-menu { display: flex; align-items: center; }
 
         .nav-menu a { 
-            text-decoration: none; color: var(--primario); margin-left: 25px; 
-            font-size: 0.7rem; font-weight: 600; text-transform: uppercase; 
-            letter-spacing: 1.5px; transition: 0.3s;
+            text-decoration: none; 
+            color: var(--primario); 
+            margin-left: 25px; 
+            font-size: 0.7rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            transition: 0.3s;
         }
 
-        /* --- HERO: ENSANCHADO --- */
+        .nav-menu a:hover { color: var(--acento); }
+
+        /* HERO SECTION */
         .hero-minimal {
-            height: 38vh;
+            height: 38vh; 
             background-image: linear-gradient(rgba(253, 251, 247, 0.2), rgba(253, 251, 247, 0.2)), url('fondo.png'); 
-            background-repeat: no-repeat; background-position: center; background-size: cover; 
-            display: flex; justify-content: center; align-items: center;
-            position: relative; z-index: 5; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+            background-repeat: no-repeat; 
+            background-position: center; 
+            background-size: cover; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            position: relative; 
+            z-index: 5; 
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
         }
+
         .logo-hero { 
             width: 400px; 
-            height: auto; max-width: 85%; position: relative; z-index: 10; 
+            height: auto; 
+            max-width: 85%; 
+            position: relative; 
+            z-index: 10; 
         }
 
         /* FRANJA NEGRA */
         .franja-negra {
-            background-color: var(--negro-trama);
-            color: white; text-align: center; position: relative; z-index: 8;
+            background-color: var(--negro-trama); 
+            color: white; 
+            text-align: center; 
+            position: relative; 
+            z-index: 8; 
             padding: 50px 15% 70px; 
-            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); 
             margin-top: -45px; 
         }
 
-        .frase-nucleo {
-            font-family: var(--serif); font-size: 1.8rem; color: var(--acento);
-            margin-bottom: 15px; font-style: italic; display: block;
+        .frase-nucleo { 
+            font-family: var(--serif); 
+            font-size: 1.8rem; 
+            color: var(--acento); 
+            margin-bottom: 15px; 
+            font-style: italic; 
+            display: block; 
         }
 
-        .intro-texto p {
-            max-width: 750px; margin: 0 auto; font-family: var(--serif); 
-            font-size: 1.15rem; line-height: 1.6; opacity: 0.9;
+        .intro-texto p { 
+            max-width: 750px; 
+            margin: 0 auto; 
+            font-family: var(--serif); 
+            font-size: 1.15rem; 
+            line-height: 1.6; 
+            opacity: 0.9; 
         }
 
-        /* --- SECCIÓN PILARES REFORZADA --- */
-        .seccion-pilares { padding: 60px 10%; text-align: center; position: relative; z-index: 15; }
-        .seccion-pilares h3 {
-            font-family: var(--serif); color: var(--acento);
-            font-size: 1.5rem; letter-spacing: 4px; text-transform: uppercase;
-            margin-bottom: 40px;
+        /* SECCIÓN PILARES */
+        .seccion-pilares { 
+            padding: 60px 10%; 
+            text-align: center; 
+            position: relative; 
+            z-index: 15; 
         }
 
-        .grilla-pilares {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px; max-width: 1200px; margin: 0 auto;
+        .seccion-pilares h3 { 
+            font-family: var(--serif); 
+            color: var(--acento); 
+            font-size: 1.5rem; 
+            letter-spacing: 4px; 
+            text-transform: uppercase; 
+            margin-bottom: 40px; 
+        }
+
+        .grilla-pilares { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+            gap: 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
         }
 
         .caja-pilar {
-            background: white; padding: 35px 25px; 
-            border: 1px solid #f2f2f2;
+            background: white; 
+            padding: 35px 25px; 
+            border: 1px solid #f2f2f2; 
             border-top: 3px solid transparent; 
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            text-align: left;
-            display: flex;
-            flex-direction: column;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+            text-align: left; 
+            display: flex; 
+            flex-direction: column; 
             gap: 12px;
         }
 
-        .icon-pilar {
-            font-size: 1.5rem;
-            color: var(--acento);
-            opacity: 0.7;
-            transition: 0.3s;
-        }
-
-        .caja-pilar h4 { font-family: var(--sans); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--primario); font-size: 0.85rem; margin: 0;}
-        .caja-pilar p { font-size: 0.8rem; line-height: 1.6; color: #666; margin: 0;}
-
         .caja-pilar:hover { 
-            border-color: #eee;
+            border-color: #eee; 
             border-top-color: var(--acento); 
             transform: translateY(-8px); 
             box-shadow: 0 15px 30px rgba(160, 82, 45, 0.05); 
         }
 
+        .icon-pilar { 
+            font-size: 1.5rem; 
+            color: var(--acento); 
+            opacity: 0.7; 
+            transition: 0.3s; 
+        }
+
         .caja-pilar:hover .icon-pilar { opacity: 1; transform: scale(1.1); }
 
+        .caja-pilar h4 { 
+            font-family: var(--sans); 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            color: var(--primario); 
+            font-size: 0.85rem; 
+            margin: 0;
+        }
+
+        .caja-pilar p { 
+            font-size: 0.8rem; 
+            line-height: 1.6; 
+            color: #666; 
+            margin: 0;
+        }
+
+        /* BOTÓN CTA FINAL */
+        .cta-inicio { margin-top: 50px; }
+
+        .btn-consulta { 
+            display: inline-block; 
+            padding: 15px 30px; 
+            background-color: var(--acento); 
+            color: white; 
+            text-decoration: none; 
+            text-transform: uppercase; 
+            font-size: 0.8rem; 
+            font-weight: 600; 
+            letter-spacing: 2px; 
+            transition: 0.3s;
+        }
+
+        .btn-consulta:hover { 
+            background-color: var(--primario); 
+            transform: translateY(-3px); 
+        }
+
         /* FOOTER */
-        .footer-trama { padding: 40px 0; text-align: center; border-top: 1px solid #eee; background: white; }
-        .footer-creditos { font-family: var(--sans); font-size: 0.7rem; color: #999; letter-spacing: 1px; text-transform: uppercase; }
-        .footer-creditos a { color: var(--acento); text-decoration: none; font-weight: 600; }
+        .footer-trama { 
+            padding: 40px 0; 
+            text-align: center; 
+            border-top: 1px solid #eee; 
+            background: white; 
+        }
+
+        .footer-creditos { 
+            font-family: var(--sans); 
+            font-size: 0.7rem; 
+            color: #999; 
+            letter-spacing: 1px; 
+            text-transform: uppercase; 
+        }
+
+        .footer-creditos a { 
+            color: var(--acento); 
+            text-decoration: none; 
+            font-weight: 600; 
+        }
+
+        /* BOTÓN FLOTANTE WHATSAPP */
+        .wpp-flotante {
+            position: fixed; 
+            width: 60px; 
+            height: 60px; 
+            bottom: 30px; 
+            right: 30px; 
+            background-color: var(--acento); 
+            color: #FFF; 
+            border-radius: 50px; 
+            z-index: 2000; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-decoration: none; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+            transition: 0.3s;
+        }
+
+        .wpp-flotante:hover { 
+            transform: scale(1.1) translateY(-5px); 
+            background-color: var(--primario); 
+        }
+
+        .wpp-flotante svg { width: 30px; height: 30px; fill: white; }
 
         /* RESPONSIVE HAMBURGUESA */
-        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; z-index: 1100; }
-        .menu-toggle span { width: 25px; height: 3px; background-color: var(--primario); transition: 0.4s; }
+        .menu-toggle { 
+            display: none; 
+            flex-direction: column; 
+            cursor: pointer; 
+            gap: 5px; 
+            z-index: 1100; 
+        }
+
+        .menu-toggle span { 
+            width: 25px; 
+            height: 3px; 
+            background-color: var(--primario); 
+            transition: 0.4s; 
+        }
 
         @media (max-width: 768px) {
             header { justify-content: space-between; }
             .menu-toggle { display: flex; margin-left: auto; }
             .nav-menu {
-                position: fixed; right: -100%; top: 0; background: white;
-                width: 80%; height: 100vh; display: flex; flex-direction: column;
-                justify-content: center; align-items: center; transition: 0.5s;
-                box-shadow: -10px 0 30px rgba(0,0,0,0.1); z-index: 1000;
+                position: fixed; 
+                right: -100%; 
+                top: 0; 
+                background: white; 
+                width: 80%; 
+                height: 100vh; 
+                display: flex; 
+                flex-direction: column; 
+                justify-content: center; 
+                align-items: center; 
+                transition: 0.5s; 
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1); 
+                z-index: 1000;
             }
             .nav-menu.active { right: 0; }
             .nav-menu a { margin: 15px 0; font-size: 1rem; }
-            .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
-            .menu-toggle.open span:nth-child(2) { opacity: 0; }
-            .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
-
             .hero-minimal { height: 30vh; }
             .franja-negra { padding: 40px 8% 50px; }
             .frase-nucleo { font-size: 1.3rem; }
         }
-        /* BOTÓN FLOTANTE WHATSAPP */
-.wpp-flotante {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 30px;
-    right: 30px;
-    background-color: var(--acento); /* Color óxido de tu marca */
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    z-index: 2000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.wpp-flotante:hover {
-    transform: scale(1.1) translateY(-5px);
-    background-color: var(--primario); /* Cambia al azul noche al pasar el mouse */
-}
-
-/* Icono simple estilo minimalista */
-.wpp-flotante svg {
-    width: 30px;
-    height: 30px;
-    fill: white;
-}
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-contenedor">
+    <a href="/" class="logo-contenedor">
         <img src="trama.png" alt="Logo Trama" class="logo-header">
         <span class="nombre-institucion">EQUIPO TRAMA</span>
+    </a>
+    <div class="menu-toggle" id="mobile-menu">
+        <span></span><span></span><span></span>
     </div>
-    <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
     <nav class="nav-menu">
-           <a href="index">Inicio</a>
-            <a href="atencion">Atención</a>
-           <a href="equipo">Equipo</a>
-            <a href="propuestas">Propuestas</a>
-            <a href="contacto">Contacto</a>
+        <a href="/">Inicio</a>
+        <a href="atencion">Atención</a>
+        <a href="equipo">Equipo</a>
+        <a href="propuestas">Propuestas</a>
+        <a href="contacto">Contacto</a>
     </nav>
 </header>
 
@@ -209,18 +350,14 @@
 <main>
     <section class="franja-negra">
         <div class="intro-texto">
-            <span class="frase-nucleo">“Trabajar acompañados, sin perder autonomía.”</span>
-            <p>
-                Red de profesionales de la salud mental con un marco ético y clínico común, 
-                articulados bajo una misma identidad para potenciar el trabajo en red y la formación continua.
-            </p>
+            <span class="frase-nucleo">Trabajar acompañados, sin perder autonomía.</span>
+            <p>Red de profesionales de la salud mental orientada a la atención clínica, el trabajo interdisciplinario y la formación continua.</p>
         </div>
     </section>
 
     <section class="seccion-pilares">
         <h3>Nuestros pilares</h3>
         <div class="grilla-pilares">
-            
             <div class="caja-pilar">
                 <div class="icon-pilar">◦</div>
                 <h4>Lo individual</h4>
@@ -244,7 +381,10 @@
                 <h4>El tiempo</h4>
                 <p>Lo que se teje, se desteje y se vuelve a armar. Respetamos los ritmos subjetivos de cada proceso.</p>
             </div>
+        </div>
 
+        <div class="cta-inicio">
+            <a href="contacto" class="btn-consulta">Solicitar entrevista</a>
         </div>
     </section>
 </main>
@@ -253,22 +393,26 @@
     <p class="footer-creditos">Creado por <a href="http://www.somosnomade.com.ar" target="_blank">Nómade</a> - 2026</p>
 </footer>
 
+<a href="https://wa.me/5491158296225" class="wpp-flotante" target="_blank" aria-label="Chat en WhatsApp">
+    <svg viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.006.332.013c.101.007.238-.038.372.283.134.321.462 1.127.502 1.208.04.081.067.175.013.283-.054.108-.081.186-.161.28l-.242.28c-.081.093-.165.195-.07.359.095.163.421.696.904 1.127.621.554 1.144.726 1.303.807.159.081.252.068.346-.041.093-.108.401-.468.508-.627.107-.159.214-.134.359-.081.145.054.915.431 1.074.512.159.081.265.122.304.189.04.067.04.391-.104.796z"/>
+    </svg>
+</a>
+
 <script>
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
+
     mobileMenu.addEventListener('click', () => {
         navMenu.classList.toggle('active');
         mobileMenu.classList.toggle('open');
     });
+
     document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
         navMenu.classList.remove('active');
         mobileMenu.classList.remove('open');
     }));
 </script>
-    <a href="https://wa.me/5491158296225" class="wpp-flotante" target="_blank" aria-label="Chat en WhatsApp">
-    <svg viewBox="0 0 24 24">
-        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.006.332.013c.101.007.238-.038.372.283.134.321.462 1.127.502 1.208.04.081.067.175.013.283-.054.108-.081.186-.161.28l-.242.28c-.081.093-.165.195-.07.359.095.163.421.696.904 1.127.621.554 1.144.726 1.303.807.159.081.252.068.346-.041.093-.108.401-.468.508-.627.107-.159.214-.134.359-.081.145.054.915.431 1.074.512.159.081.265.122.304.189.04.067.04.391-.104.796z"/>
-    </svg>
-</a>
+
 </body>
 </html>
